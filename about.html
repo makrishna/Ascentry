@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Us – Ascentry IT Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ─── MISSION / VALUES ─── */
+.mission { background: var(--section-alt); }
+.mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.mission-visual {
+  position: relative; aspect-ratio: 1;
+  border-radius: 24px; overflow: hidden;
+  background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+  display: flex; align-items: center; justify-content: center;
+}
+.mission-visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 40% 40%, rgba(0,196,167,0.2), transparent 65%),
+              radial-gradient(circle at 70% 70%, rgba(79,195,247,0.12), transparent 60%);
+}
+.mission-icon { font-size: 7rem; position: relative; z-index: 1; }
+.mission-badge {
+  position: absolute; top: 24px; right: 24px;
+  background: rgba(0,196,167,0.15);
+  border: 1px solid rgba(0,196,167,0.35);
+  border-radius: 12px; padding: 14px 18px;
+  text-align: center; font-family: var(--font-display);
+}
+.mission-badge .b-num { font-size: 1.6rem; font-weight: 800; color: var(--teal); line-height: 1; }
+.mission-badge .b-txt { font-size: 0.72rem; color: var(--muted); margin-top: 3px; }
+
+.values-list { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2.5rem; }
+.value-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 1.2rem 1.5rem;
+  background: rgba(255,255,255,0.025);
+  border-radius: 14px; border: 1px solid var(--border);
+  transition: border-color 0.25s;
+}
+.value-item:hover { border-color: rgba(0,196,167,0.3); }
+.vi-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+.vi-text h4 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+.vi-text p  { font-size: 0.84rem; color: var(--muted); line-height: 1.55; }
+
+/* ─── STATS BAND ─── */
+.stats-band { background: var(--navy); }
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+.sb-item { text-align: center; padding: 2.5rem 1rem; border-right: 1px solid var(--border); }
+.sb-item:last-child { border-right: none; }
+.sb-num { font-family: var(--font-display); font-size: 3rem; font-weight: 800; color: var(--teal); line-height: 1; letter-spacing: -0.04em; }
+.sb-label { font-size: 0.88rem; color: var(--muted); margin-top: 0.5rem; }
+
+/* ─── TEAM ─── */
+.team { background: var(--section-alt); }
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+.team-card {
+  background: var(--card-bg); border-radius: 18px; border: 1px solid var(--border);
+  overflow: hidden; transition: transform 0.3s, border-color 0.3s;
+}
+.team-card:hover { transform: translateY(-5px); border-color: rgba(0,196,167,0.3); }
+.team-avatar {
+  height: 200px; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 5rem;
+}
+.team-avatar.a1 { background: linear-gradient(135deg, #0f2035, #112545); }
+.team-avatar.a2 { background: linear-gradient(135deg, #0f2035, #1a1040); }
+.team-avatar.a3 { background: linear-gradient(135deg, #0f2035, #0d3040); }
+.team-avatar.a4 { background: linear-gradient(135deg, #0f2035, #1a2a10); }
+.team-avatar.a5 { background: linear-gradient(135deg, #0f2035, #30200d); }
+.team-avatar.a6 { background: linear-gradient(135deg, #0f2035, #201040); }
+.team-info { padding: 1.4rem 1.5rem; }
+.team-info h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+.team-info .role { font-size: 0.82rem; color: var(--teal); font-weight: 500; margin-bottom: 0.6rem; }
+.team-info p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+/* ─── CERTIFICATIONS ─── */
+.certs { background: var(--navy); }
+.cert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.cert-card {
+  background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border);
+  padding: 1.8rem; text-align: center;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.cert-card:hover { border-color: rgba(0,196,167,0.35); transform: translateY(-4px); }
+.cert-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+.cert-card h4 { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.cert-card span { font-size: 0.78rem; color: var(--teal); }
+
+/* ─── CTA BANNER ─── */
+.cta-banner { background: linear-gradient(135deg,var(--teal-dark),var(--teal)); padding:80px 5%; text-align:center; }
+.cta-banner h2 { font-family:var(--font-display); font-size:clamp(1.8rem,3vw,2.6rem); font-weight:800; color:var(--navy); margin-bottom:1rem; }
+.cta-banner p { color:rgba(10,22,40,0.75); font-size:1.05rem; margin-bottom:2rem; }
+.btn-navy { background:var(--navy); color:var(--white); padding:14px 36px; border-radius:8px; font-family:var(--font-display); font-weight:700; font-size:0.95rem; text-decoration:none; display:inline-flex;align-items:center;gap:8px; transition:all 0.25s; }
+.btn-navy:hover { background:var(--navy-mid); transform:translateY(-2px); }
+
+@media (max-width: 1000px) {
+  .mission-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .sb-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .sb-item:last-child { border-bottom: none; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .team-grid { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: 1fr 1fr; }
+  .stats-row { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="logo-dot"></span>Ascentry<span>IT Solutions</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="clients.html">Clients</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>About Us</span></div>
+    <div class="page-hero-eyebrow">Our Story</div>
+    <h1>Pioneering <em>IT Excellence</em> Since 2009</h1>
+    <p>Ascentry was founded with a singular vision: to make enterprise-grade IT solutions accessible, reliable, and transformative for every organisation — regardless of size or sector.</p>
+    <div class="page-hero-actions">
+      <a href="contact.html" class="btn-primary">Work With Us →</a>
+      <a href="services.html" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- MISSION & VALUES -->
+<section class="mission">
+  <div class="mission-grid">
+    <div class="reveal" style="position:relative;">
+      <div class="mission-visual">
+        <div class="mission-icon">🏢</div>
+        <div class="mission-badge">
+          <div class="b-num">15+</div>
+          <div class="b-txt">Years of<br>Excellence</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-label">Our Mission</div>
+      <h2 class="section-title">We Build IT That <em>Empowers</em> Businesses</h2>
+      <p class="section-sub" style="margin-bottom:2.5rem;">
+        At Ascentry, we believe technology should be an enabler — not a barrier. Our mission is to design, deploy, and manage IT infrastructure that gives businesses a competitive edge, keeps data secure, and scales as you grow.
+      </p>
+      <div class="values-list">
+        <div class="value-item"><div class="vi-icon">🎯</div><div class="vi-text"><h4>Client-First Philosophy</h4><p>Every engagement starts with understanding your unique challenges. We tailor solutions, not sell templates.</p></div></div>
+        <div class="value-item"><div class="vi-icon">🔒</div><div class="vi-text"><h4>Security by Design</h4><p>Security is not an afterthought at Ascentry — it is embedded into every architecture decision from the start.</p></div></div>
+        <div class="value-item"><div class="vi-icon">⚡</div><div class="vi-text"><h4>Operational Excellence</h4><p>We maintain 99.9% uptime SLAs and 24/7 NOC monitoring so your business never stops running.</p></div></div>
+        <div class="value-item"><div class="vi-icon">🌱</div><div class="vi-text"><h4>Continuous Innovation</h4><p>From AI-driven analytics to zero-trust security, we keep our clients ahead of the technology curve.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats-band">
+  <div style="text-align:center; margin-bottom:3rem;">
+    <div class="section-label" style="justify-content:center;">By The Numbers</div>
+    <h2 class="section-title" style="text-align:center;">Our <em>Impact</em> in Numbers</h2>
+  </div>
+  <div class="stats-row">
+    <div class="sb-item reveal"><div class="sb-num"><span class="counter" data-target="15" data-suffix="+">15+</span></div><div class="sb-label">Years in Operation</div></div>
+    <div class="sb-item reveal" style="transition-delay:0.1s"><div class="sb-num"><span class="counter" data-target="200" data-suffix="+">200+</span></div><div class="sb-label">Enterprise Clients</div></div>
+    <div class="sb-item reveal" style="transition-delay:0.2s"><div class="sb-num"><span class="counter" data-target="350" data-suffix="+">350+</span></div><div class="sb-label">Certified Engineers</div></div>
+    <div class="sb-item reveal" style="transition-delay:0.3s"><div class="sb-num"><span class="counter" data-target="98" data-suffix="%">98%</span></div><div class="sb-label">Client Retention</div></div>
+  </div>
+</section>
+
+<!-- LEADERSHIP TEAM -->
+<section class="team">
+  <div class="section-label reveal">Our People</div>
+  <h2 class="section-title reveal">Meet the <em>Leadership Team</em></h2>
+  <p class="section-sub reveal" style="margin-bottom:0;">Experienced professionals driving strategy, innovation, and client success across every vertical.</p>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-avatar a1">👨‍💼</div>
+      <div class="team-info">
+        <h3>Rajesh Kumar</h3>
+        <div class="role">Founder & CEO</div>
+        <p>20+ years in enterprise IT infrastructure. Former CTO at a Fortune 500 technology firm, passionate about digital transformation.</p>
+      </div>
+    </div>
+    <div class="team-card reveal" style="transition-delay:0.1s">
+      <div class="team-avatar a2">👩‍💼</div>
+      <div class="team-info">
+        <h3>Priya Sharma</h3>
+        <div class="role">Chief Operations Officer</div>
+        <p>Expert in scaling managed service operations. Built Ascentry's 24/7 NOC from the ground up with 99.9% SLA achievement.</p>
+      </div>
+    </div>
+    <div class="team-card reveal" style="transition-delay:0.2s">
+      <div class="team-avatar a3">👨‍💻</div>
+      <div class="team-info">
+        <h3>Arun Mehta</h3>
+        <div class="role">Chief Technology Officer</div>
+        <p>Cloud architect and cybersecurity veteran with certifications across AWS, Azure, Palo Alto Networks, and Fortinet.</p>
+      </div>
+    </div>
+    <div class="team-card reveal" style="transition-delay:0.1s">
+      <div class="team-avatar a4">👩‍🔬</div>
+      <div class="team-info">
+        <h3>Deepa Reddy</h3>
+        <div class="role">Head of Cybersecurity</div>
+        <p>CISSP-certified security leader with expertise in threat intelligence, SOC operations, and compliance frameworks.</p>
+      </div>
+    </div>
+    <div class="team-card reveal" style="transition-delay:0.2s">
+      <div class="team-avatar a5">👨‍🏫</div>
+      <div class="team-info">
+        <h3>Vikram Nair</h3>
+        <div class="role">VP – Cloud & Infrastructure</div>
+        <p>15 years designing hybrid cloud architectures. Led migrations for 50+ enterprise clients across financial and healthcare sectors.</p>
+      </div>
+    </div>
+    <div class="team-card reveal" style="transition-delay:0.3s">
+      <div class="team-avatar a6">👩‍💼</div>
+      <div class="team-info">
+        <h3>Sunita Patel</h3>
+        <div class="role">Director – Client Success</div>
+        <p>Ensures every client maximises ROI from their Ascentry engagement. Champions the 98% client retention rate we proudly maintain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs">
+  <div class="section-label reveal">Credentials</div>
+  <h2 class="section-title reveal">Industry <em>Certifications</em> & Accreditations</h2>
+  <p class="section-sub reveal">Our engineers hold the most rigorous industry certifications, ensuring best-in-class delivery on every project.</p>
+  <div class="cert-grid">
+    <div class="cert-card reveal"><div class="cert-icon">☁️</div><h4>AWS Advanced Partner</h4><span>Amazon Web Services</span></div>
+    <div class="cert-card reveal" style="transition-delay:0.1s"><div class="cert-icon">🔷</div><h4>Microsoft Gold Partner</h4><span>Azure & M365</span></div>
+    <div class="cert-card reveal" style="transition-delay:0.2s"><div class="cert-icon">🛡️</div><h4>ISO 27001 Certified</h4><span>Information Security</span></div>
+    <div class="cert-card reveal" style="transition-delay:0.3s"><div class="cert-icon">🔥</div><h4>Fortinet NSE Partner</h4><span>Network Security Expert</span></div>
+    <div class="cert-card reveal"><div class="cert-icon">🏅</div><h4>Cisco Premier Partner</h4><span>Networking & Collaboration</span></div>
+    <div class="cert-card reveal" style="transition-delay:0.1s"><div class="cert-icon">🌐</div><h4>Google Cloud Partner</h4><span>Cloud Infrastructure</span></div>
+    <div class="cert-card reveal" style="transition-delay:0.2s"><div class="cert-icon">📋</div><h4>ISO 9001:2015</h4><span>Quality Management</span></div>
+    <div class="cert-card reveal" style="transition-delay:0.3s"><div class="cert-icon">🔐</div><h4>Palo Alto MSSP</h4><span>Managed Security</span></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>Let's Build Something Great Together</h2>
+  <p>Reach out to discover how Ascentry can accelerate your IT strategy.</p>
+  <a href="contact.html" class="btn-navy">Contact Our Team →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="dot-grid" style="bottom:0;right:0;width:250px;height:200px;"></div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo"><span class="logo-dot"></span>Ascentry<span>IT Solutions</span></a>
+      <p>A leading customer-centric IT Infrastructure and Security Services company delivering end-to-end solutions across Hyderabad, India and globally.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">𝕏</a>
+        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn">ig</a>
+      </div>
+    </div>
+    <div class="footer-col"><h5>Solutions</h5><ul><li><a href="solutions.html">IT Infrastructure</a></li><li><a href="solutions.html">Information Security</a></li><li><a href="solutions.html">Cloud Solutions</a></li><li><a href="solutions.html">Data Centre</a></li></ul></div>
+    <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">Managed Services</a></li><li><a href="services.html">IT Consulting</a></li><li><a href="services.html">Managed Security</a></li><li><a href="services.html">Implementation</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="clients.html">Clients</a></li><li><a href="clients.html">Alliances</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Ascentry IT Solutions. All rights reserved.</p>
+    <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

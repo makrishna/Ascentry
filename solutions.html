@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Solutions – Ascentry IT Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ─── SOLUTION DETAIL CARDS ─── */
+.sol-section { padding: 100px 5%; }
+.sol-section:nth-child(even) { background: var(--section-alt); }
+.sol-section:nth-child(odd)  { background: var(--navy); }
+
+.sol-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.sol-detail-grid.reverse { direction: rtl; }
+.sol-detail-grid.reverse > * { direction: ltr; }
+
+.sol-visual {
+  border-radius: 20px; overflow: hidden;
+  background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+  aspect-ratio: 4/3;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 7rem;
+}
+.sol-visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 40% 40%, rgba(0,196,167,0.2), transparent 60%);
+}
+.sol-visual-deco {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--teal), var(--sky));
+}
+
+.sol-feature-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 2rem; }
+.pill {
+  background: rgba(0,196,167,0.1);
+  border: 1px solid rgba(0,196,167,0.25);
+  color: var(--teal); font-size: 0.78rem; font-weight: 600;
+  padding: 6px 14px; border-radius: 50px;
+  font-family: var(--font-display); letter-spacing: 0.02em;
+}
+
+.sol-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+.sol-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 0.9rem; color: var(--off-white); line-height: 1.5;
+}
+.sol-list li::before {
+  content: '✓'; color: var(--teal); font-weight: 700;
+  flex-shrink: 0; margin-top: 1px;
+}
+
+/* ─── OVERVIEW STRIP ─── */
+.sol-overview { background: var(--navy); }
+.overview-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.ov-card {
+  background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border);
+  padding: 2rem 1.5rem; text-align: center;
+  transition: transform 0.3s, border-color 0.3s;
+}
+.ov-card:hover { transform: translateY(-5px); border-color: rgba(0,196,167,0.35); }
+.ov-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+.ov-card h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+.ov-card p  { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+
+/* ─── CTA BANNER ─── */
+.cta-banner { background: linear-gradient(135deg,var(--teal-dark),var(--teal)); padding:80px 5%; text-align:center; }
+.cta-banner h2 { font-family:var(--font-display); font-size:clamp(1.8rem,3vw,2.6rem); font-weight:800; color:var(--navy); margin-bottom:1rem; }
+.cta-banner p { color:rgba(10,22,40,0.75); font-size:1.05rem; margin-bottom:2rem; }
+.btn-navy { background:var(--navy); color:var(--white); padding:14px 36px; border-radius:8px; font-family:var(--font-display); font-weight:700; font-size:0.95rem; text-decoration:none; display:inline-flex;align-items:center;gap:8px; transition:all 0.25s; }
+.btn-navy:hover { background:var(--navy-mid); transform:translateY(-2px); }
+
+@media (max-width: 1000px) {
+  .sol-detail-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .sol-detail-grid.reverse { direction: ltr; }
+  .overview-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .overview-cards { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="logo-dot"></span>Ascentry<span>IT Solutions</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="solutions.html" class="active">Solutions</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="clients.html">Clients</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Solutions</span></div>
+    <div class="page-hero-eyebrow">What We Offer</div>
+    <h1>End-to-End IT <em>Solutions</em> Built for Enterprise</h1>
+    <p>From network infrastructure to cloud migration and cybersecurity, Ascentry delivers comprehensive technology solutions that keep your business secure, agile, and always-on.</p>
+    <div class="page-hero-actions">
+      <a href="contact.html" class="btn-primary">Request a Demo →</a>
+      <a href="services.html" class="btn-outline">View Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW CARDS -->
+<section class="sol-overview">
+  <div style="text-align:center;">
+    <div class="section-label" style="justify-content:center;">At a Glance</div>
+    <h2 class="section-title" style="text-align:center;">Our Solution <em>Portfolio</em></h2>
+  </div>
+  <div class="overview-cards">
+    <div class="ov-card reveal"><div class="ov-icon">🖥️</div><h3>IT Infrastructure</h3><p>Robust, scalable networks and compute platforms tailored to your workload requirements.</p></div>
+    <div class="ov-card reveal" style="transition-delay:0.1s"><div class="ov-icon">🛡️</div><h3>Information Security</h3><p>Multi-layered security spanning endpoints, networks, applications, and cloud environments.</p></div>
+    <div class="ov-card reveal" style="transition-delay:0.2s"><div class="ov-icon">☁️</div><h3>Cloud Solutions</h3><p>Public, private, and hybrid cloud architectures designed for performance and cost efficiency.</p></div>
+    <div class="ov-card reveal" style="transition-delay:0.3s"><div class="ov-icon">🏗️</div><h3>Data Centre</h3><p>High-availability data centre design, build, and full lifecycle management.</p></div>
+  </div>
+</section>
+
+<!-- IT INFRASTRUCTURE -->
+<section class="sol-section">
+  <div class="sol-detail-grid">
+    <div class="sol-visual reveal">🖥️<div class="sol-visual-deco"></div></div>
+    <div class="reveal">
+      <div class="section-label">Solution 01</div>
+      <h2 class="section-title">IT Infrastructure <em>Solutions</em></h2>
+      <p class="section-sub" style="margin-bottom:1.5rem;">Modern enterprises demand infrastructure that is resilient, scalable, and automation-ready. Ascentry architects and manages end-to-end IT environments — from LAN/WAN design to hyper-converged infrastructure and SD-WAN deployments.</p>
+      <div class="sol-feature-pills">
+        <span class="pill">SD-WAN</span><span class="pill">HCI</span><span class="pill">LAN / WAN</span>
+        <span class="pill">Wireless</span><span class="pill">Unified Communications</span><span class="pill">NOC</span>
+      </div>
+      <ul class="sol-list">
+        <li>Enterprise network design, deployment & optimisation across multi-site environments</li>
+        <li>Server, storage, and virtualisation (VMware, Hyper-V, Nutanix)</li>
+        <li>SD-WAN implementation for improved performance and cost reduction</li>
+        <li>24/7 Network Operations Centre (NOC) monitoring and incident management</li>
+        <li>Structured cabling, AV, and unified communications solutions</li>
+      </ul>
+      <a href="contact.html" class="btn-primary">Get a Consultation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- INFORMATION SECURITY -->
+<section class="sol-section">
+  <div class="sol-detail-grid reverse">
+    <div class="sol-visual reveal">🛡️<div class="sol-visual-deco"></div></div>
+    <div class="reveal">
+      <div class="section-label">Solution 02</div>
+      <h2 class="section-title">Information <em>Security</em></h2>
+      <p class="section-sub" style="margin-bottom:1.5rem;">Cyber threats evolve daily. Ascentry's security practice protects your organisation across every surface — from perimeter firewalls to identity management, endpoint protection, and compliance-driven governance frameworks.</p>
+      <div class="sol-feature-pills">
+        <span class="pill">Next-Gen Firewall</span><span class="pill">Zero Trust</span><span class="pill">SIEM / SOC</span>
+        <span class="pill">Endpoint Protection</span><span class="pill">Pen Testing</span><span class="pill">Compliance</span>
+      </div>
+      <ul class="sol-list">
+        <li>Next-generation firewall design and management (Palo Alto, Fortinet, Check Point)</li>
+        <li>Zero Trust Network Access (ZTNA) architecture and implementation</li>
+        <li>SIEM deployment, tuning, and 24/7 SOC monitoring</li>
+        <li>Vulnerability assessments and penetration testing</li>
+        <li>ISO 27001, NIST, and GDPR compliance consulting</li>
+      </ul>
+      <a href="contact.html" class="btn-primary">Secure Your Business →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOUD SOLUTIONS -->
+<section class="sol-section">
+  <div class="sol-detail-grid">
+    <div class="sol-visual reveal">☁️<div class="sol-visual-deco"></div></div>
+    <div class="reveal">
+      <div class="section-label">Solution 03</div>
+      <h2 class="section-title">Cloud <em>Solutions</em></h2>
+      <p class="section-sub" style="margin-bottom:1.5rem;">Cloud is not a destination — it is a continuous journey. Ascentry guides organisations from initial cloud strategy through migration, modernisation, and ongoing optimisation across AWS, Azure, and Google Cloud.</p>
+      <div class="sol-feature-pills">
+        <span class="pill">AWS</span><span class="pill">Azure</span><span class="pill">Google Cloud</span>
+        <span class="pill">Multi-Cloud</span><span class="pill">FinOps</span><span class="pill">Kubernetes</span>
+      </div>
+      <ul class="sol-list">
+        <li>Cloud readiness assessment and migration roadmap development</li>
+        <li>Lift-and-shift, re-platforming, and cloud-native application migration</li>
+        <li>Hybrid and multi-cloud architecture design and governance</li>
+        <li>Cloud cost optimisation (FinOps) and right-sizing</li>
+        <li>Containerisation, Kubernetes orchestration, and DevOps enablement</li>
+      </ul>
+      <a href="contact.html" class="btn-primary">Start Your Cloud Journey →</a>
+    </div>
+  </div>
+</section>
+
+<!-- DATA CENTRE -->
+<section class="sol-section">
+  <div class="sol-detail-grid reverse">
+    <div class="sol-visual reveal">🏗️<div class="sol-visual-deco"></div></div>
+    <div class="reveal">
+      <div class="section-label">Solution 04</div>
+      <h2 class="section-title">Data Centre <em>Solutions</em></h2>
+      <p class="section-sub" style="margin-bottom:1.5rem;">High-availability data centres are the backbone of the modern enterprise. Ascentry delivers complete data centre lifecycle services — from facility design and build to ongoing operations, optimisation, and decommissioning.</p>
+      <div class="sol-feature-pills">
+        <span class="pill">Colocation</span><span class="pill">DCIM</span><span class="pill">Rack & Stack</span>
+        <span class="pill">Cooling</span><span class="pill">Power</span><span class="pill">DR</span>
+      </div>
+      <ul class="sol-list">
+        <li>Data centre design, build, and fit-out for Tier II, III, and IV standards</li>
+        <li>Data Centre Infrastructure Management (DCIM) tooling and integration</li>
+        <li>Server rack deployment, cabling, and commissioning</li>
+        <li>Power, cooling, and physical security consulting</li>
+        <li>Disaster Recovery (DR) planning, implementation, and regular DR drills</li>
+      </ul>
+      <a href="contact.html" class="btn-primary">Plan Your Data Centre →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>Not Sure Which Solution Fits Your Needs?</h2>
+  <p>Our consultants will assess your environment and recommend the right approach — at no cost.</p>
+  <a href="contact.html" class="btn-navy">Book a Free Assessment →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="dot-grid" style="bottom:0;right:0;width:250px;height:200px;"></div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo"><span class="logo-dot"></span>Ascentry<span>IT Solutions</span></a>
+      <p>A leading customer-centric IT Infrastructure and Security Services company delivering end-to-end solutions across Hyderabad, India and globally.</p>
+      <div class="footer-socials"><a href="#" class="social-btn">in</a><a href="#" class="social-btn">𝕏</a><a href="#" class="social-btn">f</a><a href="#" class="social-btn">ig</a></div>
+    </div>
+    <div class="footer-col"><h5>Solutions</h5><ul><li><a href="solutions.html">IT Infrastructure</a></li><li><a href="solutions.html">Information Security</a></li><li><a href="solutions.html">Cloud Solutions</a></li><li><a href="solutions.html">Data Centre</a></li></ul></div>
+    <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">Managed Services</a></li><li><a href="services.html">IT Consulting</a></li><li><a href="services.html">Managed Security</a></li><li><a href="services.html">Implementation</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="clients.html">Clients</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Ascentry IT Solutions. All rights reserved.</p>
+    <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

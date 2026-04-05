@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ascentry IT Solutions – Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ─── HERO ─── */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 0 5%; overflow: hidden;
+}
+.hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg,#0a1628 0%,#0d1f3c 50%,#0f2a40 100%); }
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,196,167,0.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,196,167,0.05) 1px,transparent 1px);
+  background-size: 60px 60px;
+  animation: gridShift 20s linear infinite;
+}
+@keyframes gridShift { 0%{transform:translate(0,0);} 100%{transform:translate(60px,60px);} }
+.orb { position:absolute; border-radius:50%; filter:blur(80px); opacity:0.35; animation:orb-float 8s ease-in-out infinite alternate; }
+.orb-1 { width:600px;height:600px; background:radial-gradient(circle,#00c4a7,transparent 70%); top:-150px;right:-100px; }
+.orb-2 { width:400px;height:400px; background:radial-gradient(circle,#4fc3f7,transparent 70%); bottom:0;left:-80px; animation-delay:-4s; }
+@keyframes orb-float { from{transform:translateY(0) scale(1);} to{transform:translateY(-30px) scale(1.05);} }
+
+.hero-content { position:relative;z-index:2; max-width:700px; animation:fadeUp 1s ease both; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(40px);} to{opacity:1;transform:translateY(0);} }
+
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:10px;
+  background:rgba(0,196,167,0.12); border:1px solid rgba(0,196,167,0.3);
+  color:var(--teal); font-family:var(--font-display);
+  font-size:0.78rem; font-weight:600; letter-spacing:0.12em;
+  text-transform:uppercase; padding:7px 16px; border-radius:50px; margin-bottom:1.5rem;
+}
+.hero-eyebrow::before { content:''; width:6px;height:6px; background:var(--teal); border-radius:50%; animation:pulse 2s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.5;transform:scale(0.7);} }
+
+.hero h1 {
+  font-family:var(--font-display); font-size:clamp(2.6rem,5vw,4.2rem);
+  font-weight:800; line-height:1.08; letter-spacing:-0.03em;
+  color:var(--white); margin-bottom:1.5rem;
+}
+.hero h1 em {
+  font-style:normal;
+  background:linear-gradient(90deg,var(--teal),var(--sky));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.hero p { font-size:1.1rem; color:var(--muted); max-width:560px; line-height:1.75; font-weight:300; }
+.hero-actions { display:flex; gap:1rem; flex-wrap:wrap; }
+
+.hero-stats { position:relative;z-index:2; margin-top:5rem; display:flex; gap:3rem; flex-wrap:wrap; }
+.stat-item { text-align:left; }
+.stat-num { font-family:var(--font-display); font-size:2.2rem; font-weight:800; color:var(--white); letter-spacing:-0.03em; line-height:1; }
+.stat-num span { color:var(--teal); }
+.stat-label { font-size:0.82rem; color:var(--muted); margin-top:4px; font-weight:400; letter-spacing:0.03em; }
+
+/* floating card */
+.hero-card {
+  position:absolute; right:8%; top:50%; transform:translateY(-50%);
+  z-index:2;
+  background:rgba(15,32,53,0.85); backdrop-filter:blur(20px);
+  border:1px solid rgba(0,196,167,0.2); border-radius:20px;
+  padding:2rem; width:280px;
+  animation:float-card 6s ease-in-out infinite;
+}
+@keyframes float-card { 0%,100%{transform:translateY(-50%) translateY(0);} 50%{transform:translateY(-50%) translateY(-14px);} }
+.hero-card h4 { font-family:var(--font-display); font-size:0.82rem; color:var(--teal); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem; }
+.hero-card-items { display:flex; flex-direction:column; gap:0.9rem; }
+.hero-card-item { display:flex; align-items:center; gap:15px;margin-bottom: 1rem; }
+.hci-icon { width:36px;height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+.hci-icon.teal   { background:rgba(0,196,167,0.15); }
+.hci-icon.sky    { background:rgba(79,195,247,0.15); }
+.hci-icon.amber  { background:rgba(255,183,77,0.15); }
+.hci-text p   { font-size:0.82rem; font-weight:600; color:var(--white); }
+.hci-text span { font-size:0.72rem; color:var(--muted); }
+
+/* ─── ABOUT TEASER ─── */
+.about-teaser { background:var(--section-alt); position:relative; overflow:hidden; }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; }
+.about-img-bg {
+  width:100%; aspect-ratio:4/3; border-radius:20px;
+  background:linear-gradient(135deg,var(--navy-light),var(--navy-mid));
+  overflow:hidden; position:relative;
+}
+.about-img-inner {
+  position:absolute; inset:0;
+  background: radial-gradient(circle at 30% 30%,rgba(0,196,167,0.15),transparent 60%),
+              radial-gradient(circle at 70% 70%,rgba(79,195,247,0.1),transparent 60%);
+  display:flex; align-items:center; justify-content:center; font-size:5rem;
+}
+.about-badge {
+  position:absolute; bottom:-16px; right:-16px;
+  background:var(--teal); color:var(--navy);
+  border-radius:14px; padding:16px 22px;
+  font-family:var(--font-display); text-align:center;
+  box-shadow:0 10px 40px rgba(0,196,167,0.4);
+}
+.about-badge .big   { font-size:2rem; font-weight:800; line-height:1; }
+.about-badge .small { font-size:0.75rem; font-weight:600; opacity:0.8; }
+.about-features { margin-top:2rem; display:flex; flex-direction:column; gap:1rem; }
+.about-feat {
+  display:flex; align-items:flex-start; gap:14px;
+  padding:1.1rem 1.4rem;
+  background:rgba(255,255,255,0.03); border-radius:12px; border:1px solid var(--border);
+  transition:border-color 0.25s;
+}
+.about-feat:hover { border-color:rgba(0,196,167,0.3); }
+.af-icon { font-size:1.3rem; margin-top:2px; }
+.af-text h4 { font-family:var(--font-display); font-size:0.95rem; font-weight:700; color:var(--white); margin-bottom:2px; }
+.af-text p  { font-size:0.83rem; color:var(--muted); line-height:1.5; }
+
+/* ─── SOLUTIONS TEASER ─── */
+.solutions-teaser { background:var(--navy); position:relative; overflow:hidden; }
+.sol-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3.5rem; flex-wrap:wrap; gap:1rem; }
+.sol-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.sol-card {
+  background:var(--card-bg); border-radius:18px; border:1px solid var(--border);
+  overflow:hidden; position:relative; transition:transform 0.3s,border-color 0.3s; cursor:pointer;
+}
+.sol-card:hover { transform:translateY(-6px); border-color:rgba(0,196,167,0.4); }
+.sol-card:hover .sol-card-overlay { opacity:1; }
+.sol-card-img { height:200px; position:relative; overflow:hidden; }
+.sol-card-img-bg { position:absolute;inset:0; display:flex;align-items:center;justify-content:center; font-size:4.5rem; }
+.c1 { background:linear-gradient(135deg,#0f2035,#0d2b45); }
+.c2 { background:linear-gradient(135deg,#0f2035,#1a1040); }
+.c3 { background:linear-gradient(135deg,#0f2035,#0d3040); }
+.sol-card-overlay { position:absolute;inset:0; background:linear-gradient(to top,rgba(0,196,167,0.25),transparent); opacity:0; transition:opacity 0.3s; }
+.sol-card-body { padding:1.6rem; }
+.sol-card-icon { width:44px;height:44px; border-radius:12px; background:rgba(0,196,167,0.12); display:flex;align-items:center;justify-content:center; font-size:1.2rem; margin-bottom:1rem; }
+.sol-card-body h3 { font-family:var(--font-display); font-size:1.15rem; font-weight:700; color:var(--white); margin-bottom:0.5rem; }
+.sol-card-body p  { font-size:0.875rem; color:var(--muted); line-height:1.65; margin-bottom:1.2rem; }
+.sol-link { display:inline-flex;align-items:center;gap:8px; color:var(--teal); font-family:var(--font-display); font-weight:600; font-size:0.85rem; text-decoration:none; transition:gap 0.2s; }
+.sol-link:hover { gap:12px; }
+
+/* ─── WHY US STRIP ─── */
+.why-us { background:var(--section-alt); }
+.why-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; margin-top:3rem; }
+.why-item { text-align:center; }
+.why-icon { font-size:2.5rem; margin-bottom:1rem; }
+.why-num {
+  font-family:var(--font-display); font-size:2.4rem; font-weight:800;
+  color:var(--teal); letter-spacing:-0.03em;
+}
+.why-label { font-size:0.88rem; color:var(--muted); margin-top:0.3rem; }
+
+/* ─── CTA BANNER ─── */
+.cta-banner {
+  background:linear-gradient(135deg,var(--teal-dark),var(--teal));
+  padding:80px 5%; text-align:center;
+}
+.cta-banner h2 { font-family:var(--font-display); font-size:clamp(1.8rem,3vw,2.6rem); font-weight:800; color:var(--navy); margin-bottom:1rem; }
+.cta-banner p { color:rgba(10,22,40,0.75); font-size:1.05rem; margin-bottom:2rem; }
+.btn-navy {
+  background:var(--navy); color:var(--white);
+  padding:14px 36px; border-radius:8px;
+  font-family:var(--font-display); font-weight:700; font-size:0.95rem;
+  text-decoration:none; display:inline-flex;align-items:center;gap:8px;
+  transition:all 0.25s;
+}
+.btn-navy:hover { background:var(--navy-mid); transform:translateY(-2px); }
+
+@media (max-width:1000px) {
+  .hero-card { display:none; }
+  .about-grid { grid-template-columns:1fr; gap:3rem; }
+  .sol-cards  { grid-template-columns:1fr 1fr; }
+  .why-grid   { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:640px) {
+  .sol-cards { grid-template-columns:1fr; }
+  .why-grid  { grid-template-columns:1fr 1fr; }
+  .hero-stats { gap:2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="logo-dot"></span>Ascentry<span>IT Solutions</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="clients.html">Clients</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Next-Generation IT Solutions</div>
+      <h1>Innovative Value with Smart <em>Information Technology</em></h1>
+      <p>Ascentry is a leader in providing smart solutions for organisations of all sizes — from developing unique strategies to delivering products, services, and expertise that drive real transformation.</p>
+      <div class="hero-actions">
+        <a href="solutions.html" class="btn-primary">Explore Solutions →</a>
+        <a href="contact.html" class="btn-outline">Talk to an Expert</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num"><span class="counter" data-target="15" data-suffix="+">15+</span></div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span class="counter" data-target="200" data-suffix="+">200+</span></div>
+        <div class="stat-label">Enterprise Clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span class="counter" data-target="99.9" data-suffix="%">99.9%</span></div>
+        <div class="stat-label">Uptime SLA</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">24<span>/7</span></div>
+        <div class="stat-label">Managed Support</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Card -->
+  <div class="hero-card">
+    <h4>Our Capabilities</h4>
+    <div class="hero-card-items">
+      <div class="hero-card-item">
+        <div class="hci-icon teal">🛡️</div>
+        <div class="hci-text"><p>Cybersecurity</p><span>Threat detection & response</span></div>
+      </div>
+      <div class="hero-card-item">
+        <div class="hci-icon sky">☁️</div>
+        <div class="hci-text"><p>Cloud Infrastructure</p><span>Migration & optimisation</span></div>
+      </div>
+      <div class="hero-card-item">
+        <div class="hci-icon amber">🔧</div>
+        <div class="hci-text"><p>Managed Services</p><span>24/7 IT management</span></div>
+      </div>
+      <div class="hero-card-item">
+        <div class="hci-icon teal">🌐</div>
+        <div class="hci-text"><p>Network Solutions</p><span>Enterprise networking</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT TEASER -->
+<section class="about-teaser">
+  <div class="about-grid">
+    <div class="reveal" style="position:relative;">
+      <div class="about-img-bg">
+        <div class="about-img-inner">🏢</div>
+      </div>
+      <div class="about-badge">
+        <div class="big">15+</div>
+        <div class="small">Years of<br>Excellence</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">A Leading Customer-Centric IT <em>Infrastructure</em> Company</h2>
+      <p class="section-sub" style="margin-bottom:2rem;">We provide end-to-end IT solutions including IT Network & Infrastructure, Cloud Solutions, Information Security, and Data Centre Solutions alongside a full suite of managed services.</p>
+      <div class="about-features">
+        <div class="about-feat"><div class="af-icon">🎯</div><div class="af-text"><h4>Strategic IT Consulting</h4><p>Tailored strategies that align technology with your business objectives and long-term goals.</p></div></div>
+        <div class="about-feat"><div class="af-icon">⚡</div><div class="af-text"><h4>Rapid Implementation</h4><p>Proven deployment frameworks that minimise downtime and accelerate time-to-value.</p></div></div>
+        <div class="about-feat"><div class="af-icon">🔒</div><div class="af-text"><h4>Security-First Approach</h4><p>Every solution is designed with security built-in, not bolted-on, from day one.</p></div></div>
+      </div>
+      <a href="about.html" class="btn-primary" style="margin-top:2rem;">Learn More About Us →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS TEASER -->
+<section class="solutions-teaser">
+  <div class="dot-grid" style="top:0;right:0;width:300px;height:300px;"></div>
+  <div class="sol-header reveal">
+    <div>
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Our Core <em>Solutions</em></h2>
+    </div>
+    <a href="solutions.html" class="btn-outline">View All Solutions</a>
+  </div>
+  <div class="sol-cards">
+    <div class="sol-card reveal">
+      <div class="sol-card-img"><div class="sol-card-img-bg c1">🖥️</div><div class="sol-card-overlay"></div></div>
+      <div class="sol-card-body">
+        <div class="sol-card-icon">🖥️</div>
+        <h3>IT Infrastructure Solutions</h3>
+        <p>Automation and cloud technologies are the new normal for business transformation. We architect, deploy, and manage robust infrastructure that scales with you.</p>
+        <a href="solutions.html" class="sol-link">Discover More →</a>
+      </div>
+    </div>
+    <div class="sol-card reveal" style="transition-delay:0.1s">
+      <div class="sol-card-img"><div class="sol-card-img-bg c2">🛡️</div><div class="sol-card-overlay"></div></div>
+      <div class="sol-card-body">
+        <div class="sol-card-icon">🛡️</div>
+        <h3>Information Security</h3>
+        <p>Security remains at the forefront of organisational concerns. Our comprehensive approach protects your assets, data, and reputation at every layer.</p>
+        <a href="solutions.html" class="sol-link">Discover More →</a>
+      </div>
+    </div>
+    <div class="sol-card reveal" style="transition-delay:0.2s">
+      <div class="sol-card-img"><div class="sol-card-img-bg c3">☁️</div><div class="sol-card-overlay"></div></div>
+      <div class="sol-card-body">
+        <div class="sol-card-icon">☁️</div>
+        <h3>Cloud Solutions</h3>
+        <p>The rapid rise of cloud-based solutions has transformed how businesses operate. We guide your cloud journey from strategy through migration and ongoing optimisation.</p>
+        <a href="solutions.html" class="sol-link">Discover More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us">
+  <div style="text-align:center;">
+    <div class="section-label" style="justify-content:center;">Why Ascentry</div>
+    <h2 class="section-title" style="text-align:center;">Numbers That <em>Speak Volumes</em></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-item reveal"><div class="why-icon">🏆</div><div class="why-num"><span class="counter" data-target="15" data-suffix="+">15+</span></div><div class="why-label">Years in Business</div></div>
+    <div class="why-item reveal" style="transition-delay:0.1s"><div class="why-icon">🌍</div><div class="why-num"><span class="counter" data-target="200" data-suffix="+">200+</span></div><div class="why-label">Enterprise Clients</div></div>
+    <div class="why-item reveal" style="transition-delay:0.2s"><div class="why-icon">👥</div><div class="why-num"><span class="counter" data-target="350" data-suffix="+">350+</span></div><div class="why-label">Skilled Engineers</div></div>
+    <div class="why-item reveal" style="transition-delay:0.3s"><div class="why-icon">⭐</div><div class="why-num"><span class="counter" data-target="98" data-suffix="%">98%</span></div><div class="why-label">Client Satisfaction</div></div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2>Ready to Transform Your IT Infrastructure?</h2>
+  <p>Let our experts design a solution tailored to your business needs.</p>
+  <a href="contact.html" class="btn-navy">Get a Free Consultation →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="dot-grid" style="bottom:0;right:0;width:250px;height:200px;"></div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo"><span class="logo-dot"></span>Ascentry<span>IT Solutions</span></a>
+      <p>A leading customer-centric IT Infrastructure and Security Services company delivering end-to-end solutions across Hyderabad, India and globally.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">𝕏</a>
+        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn">ig</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Solutions</h5>
+      <ul>
+        <li><a href="solutions.html">IT Infrastructure</a></li>
+        <li><a href="solutions.html">Information Security</a></li>
+        <li><a href="solutions.html">Cloud Solutions</a></li>
+        <li><a href="solutions.html">Data Centre</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="services.html">Managed Services</a></li>
+        <li><a href="services.html">IT Consulting</a></li>
+        <li><a href="services.html">Managed Security</a></li>
+        <li><a href="services.html">Implementation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="clients.html">Clients</a></li>
+        <li><a href="clients.html">Alliances</a></li>
+        <li><a href="contact.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Ascentry IT Solutions. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

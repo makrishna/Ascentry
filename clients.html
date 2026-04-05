@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Clients & Alliances – Ascentry IT Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ─── MARQUEE ─── */
+.logo-strip { overflow: hidden; width: 100%; }
+.logo-track {
+  display: flex; gap: 1.5rem; width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.logo-track-2 { animation-direction: reverse; animation-duration: 22s; }
+.logo-box {
+  flex-shrink: 0; height: 70px; min-width: 160px;
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 0.88rem;
+  font-weight: 700; color: var(--muted);
+  letter-spacing: 0.03em;
+  transition: border-color 0.25s, color 0.25s;
+}
+.logo-box:hover { border-color: rgba(0,196,167,0.4); color: var(--teal); }
+@keyframes marquee { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+
+/* ─── CLIENTS SECTION ─── */
+.clients-section { background: var(--section-alt); }
+.clients-header { text-align: center; margin-bottom: 3.5rem; }
+
+/* ─── TESTIMONIALS ─── */
+.testimonials { background: var(--navy); }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+.testi-card {
+  background: var(--card-bg); border-radius: 18px; border: 1px solid var(--border);
+  padding: 2rem; position: relative;
+  transition: transform 0.3s, border-color 0.3s;
+}
+.testi-card:hover { transform: translateY(-5px); border-color: rgba(0,196,167,0.3); }
+.testi-quote { font-size: 2rem; color: var(--teal); line-height: 1; margin-bottom: 1rem; }
+.testi-text { font-size: 0.9rem; color: var(--off-white); line-height: 1.75; margin-bottom: 1.5rem; font-weight: 300; }
+.testi-stars { color: #fbbf24; font-size: 0.9rem; margin-bottom: 1rem; }
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(0,196,167,0.15); border: 2px solid rgba(0,196,167,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.testi-name { font-family: var(--font-display); font-size: 0.88rem; font-weight: 700; color: var(--white); }
+.testi-role { font-size: 0.78rem; color: var(--muted); }
+
+/* ─── ALLIANCES ─── */
+.alliances { background: var(--section-alt); }
+.alliances-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.alliance-box {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.8rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; gap: 0.75rem;
+  transition: border-color 0.25s, transform 0.25s;
+  min-height: 120px;
+}
+.alliance-box:hover { border-color: rgba(0,196,167,0.4); transform: translateY(-4px); }
+.alliance-icon { font-size: 2rem; }
+.alliance-name { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: var(--white); }
+.alliance-type { font-size: 0.75rem; color: var(--teal); }
+
+/* ─── INDUSTRIES ─── */
+.industries { background: var(--navy); }
+.ind-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.ind-card {
+  background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border);
+  padding: 2rem; display: flex; align-items: flex-start; gap: 1.2rem;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.ind-card:hover { border-color: rgba(0,196,167,0.3); transform: translateY(-4px); }
+.ind-icon { font-size: 2rem; flex-shrink: 0; }
+.ind-text h3 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.ind-text p  { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+/* ─── CTA ─── */
+.cta-banner { background: linear-gradient(135deg,var(--teal-dark),var(--teal)); padding:80px 5%; text-align:center; }
+.cta-banner h2 { font-family:var(--font-display); font-size:clamp(1.8rem,3vw,2.6rem); font-weight:800; color:var(--navy); margin-bottom:1rem; }
+.cta-banner p { color:rgba(10,22,40,0.75); font-size:1.05rem; margin-bottom:2rem; }
+.btn-navy { background:var(--navy); color:var(--white); padding:14px 36px; border-radius:8px; font-family:var(--font-display); font-weight:700; font-size:0.95rem; text-decoration:none; display:inline-flex;align-items:center;gap:8px; transition:all 0.25s; }
+.btn-navy:hover { background:var(--navy-mid); transform:translateY(-2px); }
+
+@media (max-width: 1000px) {
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+  .alliances-grid { grid-template-columns: repeat(3, 1fr); }
+  .ind-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .testi-grid { grid-template-columns: 1fr; }
+  .alliances-grid { grid-template-columns: 1fr 1fr; }
+  .ind-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="logo-dot"></span>Ascentry<span>IT Solutions</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="clients.html" class="active">Clients</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Clients & Alliances</span></div>
+    <div class="page-hero-eyebrow">Trusted By</div>
+    <h1>Powering <em>200+ Enterprises</em> Across India & Beyond</h1>
+    <p>Ascentry has earned the trust of leading organisations across banking, healthcare, government, manufacturing, and technology sectors. Here is the ecosystem we are proud to serve.</p>
+    <div class="page-hero-actions">
+      <a href="contact.html" class="btn-primary">Become a Client →</a>
+      <a href="solutions.html" class="btn-outline">Our Solutions</a>
+    </div>
+  </div>
+</div>
+
+<!-- CLIENT LOGOS MARQUEE -->
+<section class="clients-section">
+  <div class="clients-header">
+    <div class="section-label" style="justify-content:center;">Our Clients</div>
+    <h2 class="section-title">Organisations That <em>Trust Ascentry</em></h2>
+    <p class="section-sub" style="margin:0 auto;">From fast-growing startups to multi-national enterprises, our client base spans every industry and scale.</p>
+  </div>
+
+  <div class="logo-strip" style="margin-bottom:1.25rem;">
+    <div class="logo-track">
+      <div class="logo-box">TechCorp Global</div><div class="logo-box">GlobalNet</div>
+      <div class="logo-box">InfraPlus</div><div class="logo-box">CloudBase Inc.</div>
+      <div class="logo-box">SecureMind</div><div class="logo-box">DataVault</div>
+      <div class="logo-box">NetForce Ltd</div><div class="logo-box">CyberEdge</div>
+      <div class="logo-box">TechCorp Global</div><div class="logo-box">GlobalNet</div>
+      <div class="logo-box">InfraPlus</div><div class="logo-box">CloudBase Inc.</div>
+      <div class="logo-box">SecureMind</div><div class="logo-box">DataVault</div>
+      <div class="logo-box">NetForce Ltd</div><div class="logo-box">CyberEdge</div>
+    </div>
+  </div>
+
+  <div class="logo-strip" style="margin-bottom:1.25rem;">
+    <div class="logo-track logo-track-2">
+      <div class="logo-box">AlphaIT</div><div class="logo-box">BetaCloud</div>
+      <div class="logo-box">GammaNet</div><div class="logo-box">DeltaSec</div>
+      <div class="logo-box">EpsilonPro</div><div class="logo-box">ZetaSystems</div>
+      <div class="logo-box">EtaGroup</div><div class="logo-box">ThetaBase</div>
+      <div class="logo-box">AlphaIT</div><div class="logo-box">BetaCloud</div>
+      <div class="logo-box">GammaNet</div><div class="logo-box">DeltaSec</div>
+      <div class="logo-box">EpsilonPro</div><div class="logo-box">ZetaSystems</div>
+      <div class="logo-box">EtaGroup</div><div class="logo-box">ThetaBase</div>
+    </div>
+  </div>
+
+  <div class="logo-strip" style="margin-bottom:4rem;">
+    <div class="logo-track" style="animation-duration:32s;">
+      <div class="logo-box">ApexFinance</div><div class="logo-box">Meridian Health</div>
+      <div class="logo-box">OmegaLogix</div><div class="logo-box">SigmaRetail</div>
+      <div class="logo-box">LambdaEnergy</div><div class="logo-box">KappaGovt</div>
+      <div class="logo-box">IotaSteels</div><div class="logo-box">NuEdTech</div>
+      <div class="logo-box">ApexFinance</div><div class="logo-box">Meridian Health</div>
+      <div class="logo-box">OmegaLogix</div><div class="logo-box">SigmaRetail</div>
+      <div class="logo-box">LambdaEnergy</div><div class="logo-box">KappaGovt</div>
+      <div class="logo-box">IotaSteels</div><div class="logo-box">NuEdTech</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div style="text-align:center;">
+    <div class="section-label" style="justify-content:center;">What Clients Say</div>
+    <h2 class="section-title" style="text-align:center;">Client <em>Testimonials</em></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Ascentry completely transformed our network infrastructure. Their team was professional, responsive, and delivered the project ahead of schedule. Our uptime has been consistently above 99.9% since go-live.</p>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👨‍💼</div>
+        <div><div class="testi-name">Sanjay Reddy</div><div class="testi-role">CTO, ApexFinance Group</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal" style="transition-delay:0.1s">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">The managed security service from Ascentry gives us peace of mind. Their SOC team detected and neutralised a sophisticated phishing campaign before any data was compromised. Exceptional work.</p>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👩‍💼</div>
+        <div><div class="testi-name">Dr. Kavitha Nair</div><div class="testi-role">IT Director, Meridian Healthcare</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal" style="transition-delay:0.2s">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Our AWS migration was seamless thanks to Ascentry. They handled every aspect — from architecture design to post-migration optimisation — and reduced our cloud costs by 35% in the first quarter.</p>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👨‍💻</div>
+        <div><div class="testi-name">Arjun Pillai</div><div class="testi-role">Head of Engineering, ZetaSystems</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">We have been a Ascentry client for 8 years. Their proactive approach means issues are resolved before they become problems. I genuinely cannot imagine running our operations without them.</p>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👩‍🔬</div>
+        <div><div class="testi-name">Meena Krishnan</div><div class="testi-role">VP Operations, OmegaLogix</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal" style="transition-delay:0.1s">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Ascentry built our new data centre from scratch in under six months. The project management was flawless and the facility has been running without a single critical incident in two years.</p>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👨‍🏫</div>
+        <div><div class="testi-name">Ravi Shankar</div><div class="testi-role">Infrastructure Head, GlobalNet</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal" style="transition-delay:0.2s">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">The Ascentry team is an extension of our own IT department. Their 24/7 NOC caught a hardware failure at 2 AM and had it resolved before business hours. That is the level of service you want.</p>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👩‍💼</div>
+        <div><div class="testi-name">Lakshmi Iyer</div><div class="testi-role">GM – IT, SigmaRetail</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY ALLIANCES -->
+<section class="alliances">
+  <div style="text-align:center;">
+    <div class="section-label" style="justify-content:center;">Technology Alliances</div>
+    <h2 class="section-title" style="text-align:center;">Our <em>Technology Partners</em></h2>
+    <p class="section-sub" style="margin:0 auto 0;">Ascentry holds elite partnership status with the world's leading technology vendors, giving our clients access to the best solutions and support.</p>
+  </div>
+  <div class="alliances-grid">
+    <div class="alliance-box reveal"><div class="alliance-icon">🔥</div><div class="alliance-name">Fortinet</div><div class="alliance-type">Platinum Partner</div></div>
+    <div class="alliance-box reveal" style="transition-delay:0.05s"><div class="alliance-icon">🛡️</div><div class="alliance-name">Sophos</div><div class="alliance-type">Gold Partner</div></div>
+    <div class="alliance-box reveal" style="transition-delay:0.1s"><div class="alliance-icon">🌊</div><div class="alliance-name">SonicWall</div><div class="alliance-type">Premier Partner</div></div>
+    <div class="alliance-box reveal" style="transition-delay:0.15s"><div class="alliance-icon">✅</div><div class="alliance-name">Check Point</div><div class="alliance-type">Certified Partner</div></div>
+    <div class="alliance-box reveal" style="transition-delay:0.2s"><div class="alliance-icon">🌿</div><div class="alliance-name">Juniper</div><div class="alliance-type">Elite Partner</div></div>
+    <div class="alliance-box reveal" style="transition-delay:0.25s"><div class="alliance-icon">🦅</div><div class="alliance-name">Palo Alto</div><div class="alliance-type">MSSP Partner</div></div>
+    <div class="alliance-box reveal" style="transition-delay:0.3s"><div class="alliance-icon">🔷</div><div class="alliance-name">Kaspersky</div><div class="alliance-type">Solution Partner</div></div>
+    <div class="alliance-box reveal" style="transition-delay:0.35s"><div class="alliance-icon">🔐</div><div class="alliance-name">Symantec</div><div class="alliance-type">Silver Partner</div></div>
+    <div class="alliance-box reveal" style="transition-delay:0.4s"><div class="alliance-icon">☁️</div><div class="alliance-name">AWS</div><div class="alliance-type">Advanced Partner</div></div>
+    <div class="alliance-box reveal" style="transition-delay:0.45s"><div class="alliance-icon">🔷</div><div class="alliance-name">Microsoft</div><div class="alliance-type">Gold Partner</div></div>
+    <div class="alliance-box reveal" style="transition-delay:0.5s"><div class="alliance-icon">🦅</div><div class="alliance-name">CrowdStrike</div><div class="alliance-type">Channel Partner</div></div>
+    <div class="alliance-box reveal" style="transition-delay:0.55s"><div class="alliance-icon">🌀</div><div class="alliance-name">Cisco</div><div class="alliance-type">Premier Partner</div></div>
+  </div>
+</section>
+
+<!-- INDUSTRIES SERVED -->
+<section class="industries">
+  <div style="text-align:center; margin-bottom:3rem;">
+    <div class="section-label" style="justify-content:center;">Sectors We Serve</div>
+    <h2 class="section-title" style="text-align:center;">Industries We <em>Specialise</em> In</h2>
+  </div>
+  <div class="ind-grid">
+    <div class="ind-card reveal"><div class="ind-icon">🏦</div><div class="ind-text"><h3>Banking & Finance</h3><p>High-security IT environments for banks, NBFCs, and fintech companies with regulatory compliance built-in.</p></div></div>
+    <div class="ind-card reveal" style="transition-delay:0.1s"><div class="ind-icon">🏥</div><div class="ind-text"><h3>Healthcare</h3><p>HIPAA-aligned IT infrastructure and data protection solutions for hospitals and healthcare networks.</p></div></div>
+    <div class="ind-card reveal" style="transition-delay:0.2s"><div class="ind-icon">🏛️</div><div class="ind-text"><h3>Government & PSU</h3><p>Secure, compliant IT solutions for central and state government departments and public sector units.</p></div></div>
+    <div class="ind-card reveal" style="transition-delay:0.1s"><div class="ind-icon">🏭</div><div class="ind-text"><h3>Manufacturing</h3><p>OT/IT convergence, edge computing, and industrial cybersecurity for manufacturing plants.</p></div></div>
+    <div class="ind-card reveal" style="transition-delay:0.2s"><div class="ind-icon">🎓</div><div class="ind-text"><h3>Education</h3><p>Campus networking, cloud adoption, and cybersecurity for universities and K-12 institutions.</p></div></div>
+    <div class="ind-card reveal" style="transition-delay:0.3s"><div class="ind-icon">🛍️</div><div class="ind-text"><h3>Retail & E-Commerce</h3><p>Scalable cloud infrastructure and PCI-DSS compliant security for retail and e-commerce platforms.</p></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>Join 200+ Organisations That Trust Ascentry</h2>
+  <p>Let us demonstrate how we can accelerate your IT strategy and protect your business.</p>
+  <a href="contact.html" class="btn-navy">Get in Touch →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="dot-grid" style="bottom:0;right:0;width:250px;height:200px;"></div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo"><span class="logo-dot"></span>Ascentry<span>IT Solutions</span></a>
+      <p>A leading customer-centric IT Infrastructure and Security Services company delivering end-to-end solutions across Hyderabad, India and globally.</p>
+      <div class="footer-socials"><a href="#" class="social-btn">in</a><a href="#" class="social-btn">𝕏</a><a href="#" class="social-btn">f</a><a href="#" class="social-btn">ig</a></div>
+    </div>
+    <div class="footer-col"><h5>Solutions</h5><ul><li><a href="solutions.html">IT Infrastructure</a></li><li><a href="solutions.html">Information Security</a></li><li><a href="solutions.html">Cloud Solutions</a></li><li><a href="solutions.html">Data Centre</a></li></ul></div>
+    <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">Managed Services</a></li><li><a href="services.html">IT Consulting</a></li><li><a href="services.html">Managed Security</a></li><li><a href="services.html">Implementation</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="clients.html">Clients</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Ascentry IT Solutions. All rights reserved.</p>
+    <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

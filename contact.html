@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact Us – Ascentry IT Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ─── CONTACT LAYOUT ─── */
+.contact-main { background: var(--section-alt); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+
+/* info side */
+.contact-info h2 { font-family: var(--font-display); font-size: clamp(1.8rem,3vw,2.6rem); font-weight: 800; color: var(--white); letter-spacing: -0.03em; margin-bottom: 1rem; }
+.contact-info h2 em { font-style: normal; background: linear-gradient(90deg,var(--teal),var(--sky)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.contact-info > p { font-size: 0.95rem; color: var(--muted); line-height: 1.75; margin-bottom: 2.5rem; }
+
+.contact-details { display: flex; flex-direction: column; gap: 1.5rem; }
+.contact-detail {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 1.4rem; border-radius: 14px;
+  background: rgba(255,255,255,0.025); border: 1px solid var(--border);
+  transition: border-color 0.25s;
+}
+.contact-detail:hover { border-color: rgba(0,196,167,0.3); }
+.cd-icon {
+  width: 46px; height: 46px; border-radius: 12px;
+  background: rgba(0,196,167,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.cd-text p { font-family: var(--font-display); font-size: 0.8rem; font-weight: 700; color: var(--teal); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+.cd-text span, .cd-text a { font-size: 0.9rem; color: var(--off-white); text-decoration: none; line-height: 1.6; }
+.cd-text a:hover { color: var(--teal); }
+
+.office-hours {
+  margin-top: 2rem; padding: 1.4rem;
+  background: rgba(0,196,167,0.08); border: 1px solid rgba(0,196,167,0.25);
+  border-radius: 14px;
+}
+.office-hours h4 { font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+.oh-row { display: flex; justify-content: space-between; font-size: 0.85rem; padding: 4px 0; border-bottom: 1px solid var(--border); }
+.oh-row:last-child { border-bottom: none; }
+.oh-row .day { color: var(--muted); }
+.oh-row .time { color: var(--off-white); font-weight: 500; }
+
+/* form side */
+.contact-form-wrap {
+  background: var(--card-bg); border-radius: 20px;
+  border: 1px solid var(--border); padding: 2.5rem;
+}
+.contact-form-wrap h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 1.75rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1.1rem; }
+.form-group label { font-size: 0.8rem; font-weight: 600; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; font-family: var(--font-display); }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 13px 16px;
+  color: var(--white); font-family: var(--font-body); font-size: 0.9rem;
+  transition: border-color 0.25s, background 0.25s; outline: none;
+  -webkit-appearance: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(138,163,190,0.5); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: rgba(0,196,167,0.5); background: rgba(0,196,167,0.04); }
+.form-group select { cursor: pointer; }
+.form-group select option { background: var(--navy-mid); }
+.form-group textarea { resize: vertical; min-height: 130px; }
+.btn-submit {
+  width: 100%; padding: 15px; border-radius: 10px;
+  background: var(--teal); color: var(--navy);
+  font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+  border: none; cursor: pointer;
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+  letter-spacing: 0.02em;
+}
+.btn-submit:hover { background: #00dcc0; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,196,167,0.4); }
+
+/* ─── FAQ ─── */
+.faq { background: var(--navy); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 3rem; }
+.faq-item {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.6rem; cursor: pointer;
+  transition: border-color 0.25s;
+}
+.faq-item:hover { border-color: rgba(0,196,167,0.3); }
+.faq-item h4 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; }
+.faq-item p  { font-size: 0.86rem; color: var(--muted); line-height: 1.65; }
+
+/* ─── MAP PLACEHOLDER ─── */
+.map-strip { background: var(--section-alt); padding: 0; }
+.map-placeholder {
+  height: 380px;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1rem; position: relative; overflow: hidden;
+}
+.map-placeholder::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,196,167,0.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,196,167,0.05) 1px,transparent 1px);
+  background-size: 40px 40px;
+}
+.map-pin { font-size: 3rem; position: relative; z-index: 1; animation: pin-bounce 2s ease-in-out infinite; }
+@keyframes pin-bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+.map-label { position: relative; z-index: 1; font-family: var(--font-display); font-size: 0.95rem; color: var(--muted); }
+.map-label strong { color: var(--teal); }
+
+@media (max-width: 1000px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .faq-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="logo-dot"></span>Ascentry<span>IT Solutions</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="clients.html">Clients</a></li>
+    <li><a href="contact.html" class="nav-cta active" style="background:var(--teal-dark)!important;">Contact Us</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Contact Us</span></div>
+    <div class="page-hero-eyebrow">Get In Touch</div>
+    <h1>Let's Build Something <em>Great Together</em></h1>
+    <p>Have a project in mind? Need a technology partner you can rely on? Reach out to our team — we respond within one business day and offer free initial consultations.</p>
+  </div>
+</div>
+
+<!-- CONTACT MAIN -->
+<section class="contact-main">
+  <div class="contact-grid">
+    <!-- Info -->
+    <div class="contact-info reveal">
+      <div class="section-label">Contact Information</div>
+      <h2>Reach Out to Our <em>Expert Team</em></h2>
+      <p>Submit the form or reach out directly — our team is ready to help you navigate your IT transformation journey from day one.</p>
+
+      <div class="contact-details">
+        <div class="contact-detail">
+          <div class="cd-icon">📍</div>
+          <div class="cd-text">
+            <p>Corporate Office</p>
+            <span>5th Floor, The Grand, Raj Bhavan Road,<br>Somajiguda, Hyderabad – 500082, Telangana</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">📞</div>
+          <div class="cd-text">
+            <p>Phone</p>
+            <a href="tel:04048530909">040 – 4853 0909</a><br>
+            <a href="tel:+918008001234">+91 80080 01234</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">✉️</div>
+          <div class="cd-text">
+            <p>Email</p>
+            <a href="mailto:info@Ascentry.in">info@Ascentry.in</a><br>
+            <a href="mailto:sales@Ascentry.in">sales@Ascentry.in</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">🏢</div>
+          <div class="cd-text">
+            <p>Branch Office</p>
+            <span>Level 2, Cyber Towers, Hi-Tech City,<br>Madhapur, Hyderabad – 500081</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="office-hours">
+        <h4>📅 Office Hours</h4>
+        <div class="oh-row"><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:30 PM</span></div>
+        <div class="oh-row"><span class="day">Saturday</span><span class="time">10:00 AM – 2:00 PM</span></div>
+        <div class="oh-row"><span class="day">Sunday</span><span class="time">Closed</span></div>
+        <div class="oh-row"><span class="day">NOC & SOC Support</span><span class="time">24 × 7 × 365</span></div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="contact-form-wrap reveal" style="transition-delay:0.15s">
+      <h3>Send Us a Message</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" placeholder="John Doe"/>
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" placeholder="+91 98765 43210"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address *</label>
+        <input type="email" placeholder="john@company.com"/>
+      </div>
+      <div class="form-group">
+        <label>Company Name</label>
+        <input type="text" placeholder="Your Company Ltd."/>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Service of Interest</label>
+          <select>
+            <option value="">Select a service...</option>
+            <option>IT Infrastructure Solutions</option>
+            <option>Information Security</option>
+            <option>Cloud Solutions</option>
+            <option>Managed Security Services</option>
+            <option>IT Consulting & Implementation</option>
+            <option>Data Centre Solutions</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Budget Range</label>
+          <select>
+            <option value="">Select a range...</option>
+            <option>Under ₹10 Lakhs</option>
+            <option>₹10 – ₹50 Lakhs</option>
+            <option>₹50 Lakhs – ₹1 Cr</option>
+            <option>₹1 Cr+</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Message *</label>
+        <textarea placeholder="Tell us about your IT challenges and what you are looking to achieve..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="handleSubmit(this)">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- MAP PLACEHOLDER -->
+<div class="map-strip">
+  <div class="map-placeholder">
+    <div class="map-pin">📍</div>
+    <div class="map-label">Ascentry IT Solutions — <strong>Somajiguda, Hyderabad</strong></div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="faq">
+  <div style="text-align:center; margin-bottom:0;">
+    <div class="section-label" style="justify-content:center;">FAQ</div>
+    <h2 class="section-title" style="text-align:center;">Frequently Asked <em>Questions</em></h2>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item reveal">
+      <h4>How quickly can Ascentry respond to a new enquiry?</h4>
+      <p>We aim to respond to all enquiries within one business day. For urgent matters, you can call our office directly during business hours.</p>
+    </div>
+    <div class="faq-item reveal" style="transition-delay:0.1s">
+      <h4>Do you offer a free IT assessment?</h4>
+      <p>Yes — all new engagements start with a complimentary IT environment assessment to understand your current state and identify opportunities.</p>
+    </div>
+    <div class="faq-item reveal" style="transition-delay:0.1s">
+      <h4>What geographies does Ascentry cover?</h4>
+      <p>Ascentry is headquartered in Hyderabad with clients across pan-India. We also support international engagements for select managed service clients.</p>
+    </div>
+    <div class="faq-item reveal" style="transition-delay:0.2s">
+      <h4>Can Ascentry take over an existing IT environment?</h4>
+      <p>Absolutely. We have a structured onboarding process for transition engagements, ensuring continuity of service throughout the handover period.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h4>Do you work with SMBs or only enterprise clients?</h4>
+      <p>Ascentry works with organisations of all sizes — from 50-person companies to large enterprises. Our service tiers are designed to fit different scales and budgets.</p>
+    </div>
+    <div class="faq-item reveal" style="transition-delay:0.1s">
+      <h4>What are your standard SLA terms?</h4>
+      <p>Our standard managed services SLA includes 99.9% uptime, 4-hour on-site response, and 24/7 remote monitoring. Custom SLAs are available for enterprise engagements.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="dot-grid" style="bottom:0;right:0;width:250px;height:200px;"></div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo"><span class="logo-dot"></span>Ascentry<span>IT Solutions</span></a>
+      <p>A leading customer-centric IT Infrastructure and Security Services company delivering end-to-end solutions across Hyderabad, India and globally.</p>
+      <div class="footer-socials"><a href="#" class="social-btn">in</a><a href="#" class="social-btn">𝕏</a><a href="#" class="social-btn">f</a><a href="#" class="social-btn">ig</a></div>
+    </div>
+    <div class="footer-col"><h5>Solutions</h5><ul><li><a href="solutions.html">IT Infrastructure</a></li><li><a href="solutions.html">Information Security</a></li><li><a href="solutions.html">Cloud Solutions</a></li><li><a href="solutions.html">Data Centre</a></li></ul></div>
+    <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">Managed Services</a></li><li><a href="services.html">IT Consulting</a></li><li><a href="services.html">Managed Security</a></li><li><a href="services.html">Implementation</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="clients.html">Clients</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Ascentry IT Solutions. All rights reserved.</p>
+    <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

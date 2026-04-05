@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services – Ascentry IT Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ─── SERVICES LIST ─── */
+.services-main { background: var(--section-alt); }
+.services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem; }
+.serv-img {
+  aspect-ratio: 5/4; border-radius: 20px;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; font-size: 7rem;
+}
+.serv-img::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 60% 40%, rgba(0,196,167,0.2), transparent 60%);
+}
+.serv-img-deco {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--teal), var(--sky));
+}
+.serv-list { display: flex; flex-direction: column; gap: 1.2rem; }
+.serv-item {
+  display: flex; gap: 1.2rem; padding: 1.4rem;
+  background: rgba(255,255,255,0.025); border-radius: 14px;
+  border: 1px solid var(--border); cursor: pointer; transition: all 0.25s;
+}
+.serv-item:hover, .serv-item.active {
+  background: rgba(0,196,167,0.06); border-color: rgba(0,196,167,0.35);
+}
+.serv-num {
+  font-family: var(--font-display); font-size: 1.6rem; font-weight: 800;
+  color: rgba(0,196,167,0.25); line-height: 1; flex-shrink: 0;
+  transition: color 0.25s;
+}
+.serv-item:hover .serv-num, .serv-item.active .serv-num { color: var(--teal); }
+.serv-info h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.serv-info p  { font-size: 0.855rem; color: var(--muted); line-height: 1.6; }
+
+/* ─── PROCESS ─── */
+.process { background: var(--navy); }
+.process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; margin-top: 3rem; position: relative; }
+.process-steps::before {
+  content: '';
+  position: absolute; top: 36px; left: 10%; right: 10%;
+  height: 2px; background: linear-gradient(90deg, var(--teal), var(--sky));
+  z-index: 0;
+}
+.process-step { text-align: center; position: relative; z-index: 1; }
+.ps-num {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--card-bg); border: 2px solid var(--teal);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+  font-family: var(--font-display); font-size: 1.3rem; font-weight: 800;
+  color: var(--teal); box-shadow: 0 0 20px rgba(0,196,167,0.2);
+}
+.ps-title { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
+.ps-desc  { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+
+/* ─── MANAGED PLANS ─── */
+.plans { background: var(--section-alt); }
+.plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+.plan-card {
+  background: var(--card-bg); border-radius: 20px; border: 1px solid var(--border);
+  padding: 2.5rem 2rem; position: relative; transition: transform 0.3s, border-color 0.3s;
+}
+.plan-card:hover { transform: translateY(-6px); border-color: rgba(0,196,167,0.4); }
+.plan-card.featured {
+  border-color: var(--teal);
+  box-shadow: 0 0 40px rgba(0,196,167,0.15);
+}
+.plan-badge {
+  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+  background: var(--teal); color: var(--navy);
+  font-family: var(--font-display); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 16px; border-radius: 50px;
+}
+.plan-icon { font-size: 2rem; margin-bottom: 1rem; }
+.plan-card h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
+.plan-card .plan-desc { font-size: 0.875rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.6; }
+.plan-features { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2rem; }
+.plan-features li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.875rem; color: var(--off-white);
+}
+.plan-features li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
+.plan-cta {
+  display: block; text-align: center;
+  background: rgba(0,196,167,0.1); border: 1px solid rgba(0,196,167,0.3);
+  color: var(--teal); border-radius: 8px;
+  padding: 12px 24px; text-decoration: none;
+  font-family: var(--font-display); font-weight: 600; font-size: 0.9rem;
+  transition: all 0.25s;
+}
+.plan-cta:hover, .plan-card.featured .plan-cta {
+  background: var(--teal); color: var(--navy);
+}
+
+/* ─── CTA ─── */
+.cta-banner { background: linear-gradient(135deg,var(--teal-dark),var(--teal)); padding:80px 5%; text-align:center; }
+.cta-banner h2 { font-family:var(--font-display); font-size:clamp(1.8rem,3vw,2.6rem); font-weight:800; color:var(--navy); margin-bottom:1rem; }
+.cta-banner p { color:rgba(10,22,40,0.75); font-size:1.05rem; margin-bottom:2rem; }
+.btn-navy { background:var(--navy); color:var(--white); padding:14px 36px; border-radius:8px; font-family:var(--font-display); font-weight:700; font-size:0.95rem; text-decoration:none; display:inline-flex;align-items:center;gap:8px; transition:all 0.25s; }
+.btn-navy:hover { background:var(--navy-mid); transform:translateY(-2px); }
+
+@media (max-width: 1000px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .serv-img { aspect-ratio: 16/7; }
+  .process-steps { grid-template-columns: repeat(3, 1fr); }
+  .process-steps::before { display: none; }
+  .plans-grid { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
+}
+@media (max-width: 640px) {
+  .process-steps { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="logo-dot"></span>Ascentry<span>IT Solutions</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="clients.html">Clients</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Services</span></div>
+    <div class="page-hero-eyebrow">What We Do</div>
+    <h1>Managed IT Services Delivered <em>Around the Clock</em></h1>
+    <p>From infrastructure managed services and IT consulting to security operations and data centre management — Ascentry keeps your technology running at peak performance, every day.</p>
+    <div class="page-hero-actions">
+      <a href="contact.html" class="btn-primary">Talk to an Expert →</a>
+      <a href="solutions.html" class="btn-outline">Our Solutions</a>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES LIST -->
+<section class="services-main">
+  <div class="section-label reveal">What We Do</div>
+  <h2 class="section-title reveal">Our Core <em>Services</em></h2>
+  <div class="services-grid">
+    <div class="serv-img reveal">🛠️<div class="serv-img-deco"></div></div>
+    <div class="serv-list reveal">
+      <div class="serv-item active">
+        <div class="serv-num">01</div>
+        <div class="serv-info">
+          <h4>Infrastructure Managed Services</h4>
+          <p>The distribution of businesses across geographies and involvement of various functional teams from remote locations has resulted in complex, scattered IT infrastructure. We manage it all, seamlessly.</p>
+        </div>
+      </div>
+      <div class="serv-item">
+        <div class="serv-num">02</div>
+        <div class="serv-info">
+          <h4>IT Consulting & Implementation</h4>
+          <p>We provide across-the-board IT consulting and implementation services to screen and fill any gap in your business IT network and security infrastructure.</p>
+        </div>
+      </div>
+      <div class="serv-item">
+        <div class="serv-num">03</div>
+        <div class="serv-info">
+          <h4>Managed Security Services</h4>
+          <p>A wide range of Managed Security offerings covering applications, networks, endpoints, data, end-users, infrastructure, cloud, perimeters, and much more.</p>
+        </div>
+      </div>
+      <div class="serv-item">
+        <div class="serv-num">04</div>
+        <div class="serv-info">
+          <h4>Data Centre Solutions</h4>
+          <p>Design, build, and operate high-availability data centre solutions with full lifecycle management and 24/7 monitoring for maximum uptime.</p>
+        </div>
+      </div>
+      <div class="serv-item">
+        <div class="serv-num">05</div>
+        <div class="serv-info">
+          <h4>Cloud Migration & Management</h4>
+          <p>Seamless migration to AWS, Azure, or Google Cloud with ongoing cloud operations, cost optimisation, and governance to maximise your cloud investment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR PROCESS -->
+<section class="process">
+  <div style="text-align:center;">
+    <div class="section-label" style="justify-content:center;">How We Work</div>
+    <h2 class="section-title" style="text-align:center;">Our Proven <em>Delivery Process</em></h2>
+    <p class="section-sub" style="max-width:550px;margin:0 auto 0;">A structured five-stage methodology that ensures every engagement is delivered on time, within budget, and to the highest quality standard.</p>
+  </div>
+  <div class="process-steps">
+    <div class="process-step reveal"><div class="ps-num">01</div><div class="ps-title">Discovery</div><div class="ps-desc">We assess your current environment, understand pain points, and define clear objectives.</div></div>
+    <div class="process-step reveal" style="transition-delay:0.1s"><div class="ps-num">02</div><div class="ps-title">Design</div><div class="ps-desc">Our architects design a tailored solution blueprint aligned to your business goals.</div></div>
+    <div class="process-step reveal" style="transition-delay:0.2s"><div class="ps-num">03</div><div class="ps-title">Deploy</div><div class="ps-desc">Rapid, structured deployment using proven frameworks with minimal business disruption.</div></div>
+    <div class="process-step reveal" style="transition-delay:0.3s"><div class="ps-num">04</div><div class="ps-title">Manage</div><div class="ps-desc">24/7 monitoring, incident response, and proactive maintenance via our NOC & SOC teams.</div></div>
+    <div class="process-step reveal" style="transition-delay:0.4s"><div class="ps-num">05</div><div class="ps-title">Optimise</div><div class="ps-desc">Ongoing reviews, performance tuning, and roadmap updates to stay ahead of the curve.</div></div>
+  </div>
+</section>
+
+<!-- MANAGED SERVICE PLANS -->
+<section class="plans">
+  <div style="text-align:center;">
+    <div class="section-label" style="justify-content:center;">Service Tiers</div>
+    <h2 class="section-title" style="text-align:center;">Managed Service <em>Plans</em></h2>
+    <p class="section-sub" style="max-width:540px;margin:0 auto;">Choose the level of support that matches your organisation's scale and complexity.</p>
+  </div>
+  <div class="plans-grid">
+    <div class="plan-card reveal">
+      <div class="plan-icon">🔧</div>
+      <h3>Essentials</h3>
+      <p class="plan-desc">Ideal for growing businesses that need reliable IT support without full managed services.</p>
+      <ul class="plan-features">
+        <li>8×5 helpdesk support</li>
+        <li>Remote monitoring & alerting</li>
+        <li>Patch management</li>
+        <li>Monthly health reports</li>
+        <li>Endpoint security included</li>
+      </ul>
+      <a href="contact.html" class="plan-cta">Get a Quote</a>
+    </div>
+    <div class="plan-card featured reveal" style="transition-delay:0.1s">
+      <div class="plan-badge">Most Popular</div>
+      <div class="plan-icon">⚡</div>
+      <h3>Professional</h3>
+      <p class="plan-desc">The complete managed IT package for mid-market enterprises with complex environments.</p>
+      <ul class="plan-features">
+        <li>24×7 NOC monitoring</li>
+        <li>Dedicated account manager</li>
+        <li>4-hour on-site SLA</li>
+        <li>Cloud & security management</li>
+        <li>Quarterly business reviews</li>
+        <li>Disaster recovery included</li>
+      </ul>
+      <a href="contact.html" class="plan-cta">Get a Quote</a>
+    </div>
+    <div class="plan-card reveal" style="transition-delay:0.2s">
+      <div class="plan-icon">🏆</div>
+      <h3>Enterprise</h3>
+      <p class="plan-desc">A bespoke managed service engagement for large enterprises and mission-critical environments.</p>
+      <ul class="plan-features">
+        <li>Dedicated on-site engineers</li>
+        <li>Custom SLA agreements</li>
+        <li>SOC-as-a-Service</li>
+        <li>Virtual CIO advisory</li>
+        <li>Monthly executive reporting</li>
+        <li>Full stack management</li>
+      </ul>
+      <a href="contact.html" class="plan-cta">Let's Talk</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>Ready to Offload Your IT Operations?</h2>
+  <p>Let Ascentry manage your infrastructure so you can focus on your business.</p>
+  <a href="contact.html" class="btn-navy">Start a Conversation →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="dot-grid" style="bottom:0;right:0;width:250px;height:200px;"></div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo"><span class="logo-dot"></span>Ascentry<span>IT Solutions</span></a>
+      <p>A leading customer-centric IT Infrastructure and Security Services company delivering end-to-end solutions across Hyderabad, India and globally.</p>
+      <div class="footer-socials"><a href="#" class="social-btn">in</a><a href="#" class="social-btn">𝕏</a><a href="#" class="social-btn">f</a><a href="#" class="social-btn">ig</a></div>
+    </div>
+    <div class="footer-col"><h5>Solutions</h5><ul><li><a href="solutions.html">IT Infrastructure</a></li><li><a href="solutions.html">Information Security</a></li><li><a href="solutions.html">Cloud Solutions</a></li><li><a href="solutions.html">Data Centre</a></li></ul></div>
+    <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">Managed Services</a></li><li><a href="services.html">IT Consulting</a></li><li><a href="services.html">Managed Security</a></li><li><a href="services.html">Implementation</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="clients.html">Clients</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Ascentry IT Solutions. All rights reserved.</p>
+    <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+<script>
+document.querySelectorAll('.serv-item').forEach(item => {
+  item.addEventListener('click', () => {
+    document.querySelectorAll('.serv-item').forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
