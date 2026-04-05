@@ -1,6 +1,7 @@
-/* ========== Ascentry IT Solutions – Shared Stylesheet ========== */
+/* ========== NexaCore IT Solutions – Shared Stylesheet ========== */
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
 
+/* ── DARK MODE (default) ── */
 :root {
   --navy:       #0a1628;
   --navy-mid:   #112240;
@@ -17,6 +18,101 @@
   --section-alt:#0c1d34;
   --font-display:'Sora', sans-serif;
   --font-body:   'DM Sans', sans-serif;
+  /* nav bg (used in JS scroll handler) */
+  --nav-bg:     rgba(10,22,40,0.92);
+  --nav-bg-scroll: rgba(10,22,40,0.98);
+}
+
+/* ── LIGHT MODE ── */
+html.light {
+  --navy:       #f0f4f8;
+  --navy-mid:   #e2eaf3;
+  --navy-light: #cbd8e8;
+  --teal:       #008f79;
+  --teal-dark:  #007363;
+  --teal-glow:  rgba(0,143,121,0.12);
+  --sky:        #0284c7;
+  --white:      #0f172a;       /* text colour in light mode */
+  --off-white:  #1e293b;
+  --muted:      #475569;
+  --card-bg:    #ffffff;
+  --border:     rgba(0,0,0,0.09);
+  --section-alt:#e8eef6;
+  --nav-bg:     rgba(240,244,248,0.92);
+  --nav-bg-scroll: rgba(240,244,248,0.98);
+}
+
+/* ── LIGHT MODE OVERRIDES for hard-coded colours ── */
+html.light body { background: var(--navy); color: var(--off-white); }
+
+html.light nav {
+  background: var(--nav-bg);
+  border-bottom-color: var(--border);
+}
+html.light .nav-logo { color: var(--white); }
+html.light .hamburger span { background: var(--white); }
+
+html.light .page-hero {
+  background: linear-gradient(135deg, #dce8f5 0%, #c8d9ec 60%, #b8cfe6 100%);
+}
+html.light .page-hero .orb-1 { opacity: 0.15; }
+html.light .page-hero .orb-2 { opacity: 0.12; }
+html.light .page-hero-grid {
+  background-image:
+    linear-gradient(rgba(0,143,121,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,143,121,0.07) 1px, transparent 1px);
+}
+html.light .page-hero h1,
+html.light .page-hero-content { color: var(--white); }
+
+html.light .section-title { color: var(--white); }
+html.light .feature-card h3 { color: var(--white); }
+html.light .footer-col h5 { color: var(--white); }
+
+html.light .btn-outline {
+  color: var(--white);
+  border-color: rgba(0,0,0,0.2);
+}
+html.light .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+
+html.light footer { background: var(--navy-mid); }
+
+html.light .social-btn { color: var(--muted); }
+
+html.light .hero-bg { position: absolute; inset: 0; background: none!important}
+
+/* ── THEME TOGGLE BUTTON ── */
+.theme-toggle {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.05);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+.theme-toggle:hover {
+  background: rgba(0,196,167,0.12);
+  border-color: rgba(0,196,167,0.35);
+  transform: scale(1.08);
+}
+html.light .theme-toggle {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.12);
+}
+html.light .theme-toggle:hover {
+  background: rgba(0,143,121,0.1);
+  border-color: rgba(0,143,121,0.35);
+}
+
+/* smooth global colour transition */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

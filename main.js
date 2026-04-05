@@ -16,10 +16,67 @@ if (ham) ham.addEventListener('click', () => {
 // ── Sticky nav background on scroll ──
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');
-  if (nav) nav.style.background = window.scrollY > 40
-    ? 'rgba(10,22,40,0.98)'
-    : 'rgba(10,22,40,0.92)';
+  if (!nav) return;
+  const isLight = document.documentElement.classList.contains('light');
+  if (window.scrollY > 40) {
+    nav.style.background = isLight ? 'rgba(240,244,248,0.98)' : 'rgba(10,22,40,0.98)';
+  } else {
+    nav.style.background = isLight ? 'rgba(240,244,248,0.92)' : 'rgba(10,22,40,0.92)';
+  }
 });
+
+// ── Theme Toggle ──
+(function () {
+  const STORAGE_KEY = 'nexacore-theme';
+  const html = document.documentElement;
+
+  // Apply saved preference immediately (before paint)
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved === 'light') html.classList.add('light');
+
+  function getIcon() {
+    return html.classList.contains('light') ? '🌙' : '☀️';
+  }
+  function getLabel() {
+    return html.classList.contains('light') ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+  }
+
+  function syncButtons() {
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+      btn.textContent = getIcon();
+      btn.setAttribute('aria-label', getLabel());
+      btn.setAttribute('title', getLabel());
+    });
+    // also update nav bg without waiting for scroll
+    const nav = document.querySelector('nav');
+    if (nav) {
+      const isLight = html.classList.contains('light');
+      nav.style.background = window.scrollY > 40
+        ? (isLight ? 'rgba(240,244,248,0.98)' : 'rgba(10,22,40,0.98)')
+        : (isLight ? 'rgba(240,244,248,0.92)' : 'rgba(10,22,40,0.92)');
+    }
+  }
+
+  function toggleTheme() {
+    html.classList.toggle('light');
+    localStorage.setItem(STORAGE_KEY, html.classList.contains('light') ? 'light' : 'dark');
+    syncButtons();
+  }
+
+  // Inject toggle button into nav after DOM ready
+  document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+    const btn = document.createElement('button');
+    btn.className = 'theme-toggle';
+    btn.setAttribute('aria-label', getLabel());
+    btn.setAttribute('title', getLabel());
+    btn.textContent = getIcon();
+    btn.addEventListener('click', toggleTheme);
+    nav.appendChild(btn);
+    syncButtons();
+  });
+})();
 
 // ── Form submit ──
 function handleSubmit(btn) {
