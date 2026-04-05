@@ -81,6 +81,8 @@ html.light .social-btn { color: var(--muted); }
 
 html.light .hero-bg { position: absolute; inset: 0; background: none!important}
 
+html.light .hero-card { background: none!important; border: 10px solid rgba(0,196,167,0.2); width:312px!important}
+
 /* ── THEME TOGGLE BUTTON ── */
 .theme-toggle {
   width: 42px; height: 42px;
