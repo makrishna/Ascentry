@@ -79,10 +79,6 @@ html.light footer { background: var(--navy-mid); }
 
 html.light .social-btn { color: var(--muted); }
 
-html.light .hero-bg { position: absolute; inset: 0; background: none!important}
-
-html.light .hero-card { background: none!important; border: 10px solid rgba(0,196,167,0.2); width:312px!important}
-
 /* ── THEME TOGGLE BUTTON ── */
 .theme-toggle {
   width: 42px; height: 42px;
@@ -340,10 +336,63 @@ footer {
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
-  .nav-links { display: none; }
   .hamburger { display: flex; }
   .footer-grid { grid-template-columns: 1fr; }
+
+  /* hidden by default on mobile */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    position: fixed;
+    top: 72px; left: 0; right: 0;
+    background: rgba(10,22,40,0.98);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    z-index: 99;
+  }
+
+  /* open state */
+  .nav-links.mobile-open {
+    max-height: 400px;
+    padding: 1rem 0 1.5rem;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0.75rem 5%;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links li:last-child a {
+    border-bottom: none;
+    margin: 1rem 5% 0;
+    width: calc(100% - 10%);
+    text-align: center;
+    border-radius: 8px;
+  }
 }
+
+/* light mode mobile nav */
+html.light .nav-links {
+  background: rgba(240,244,248,0.98);
+}
+
+/* hamburger → X animation */
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.hamburger span { transition: transform 0.3s ease, opacity 0.2s ease; }
 
 /* ─── CARD SHARED ─── */
 .card-grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }

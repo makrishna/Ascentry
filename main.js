@@ -8,10 +8,31 @@ reveals.forEach(el => revealObs.observe(el));
 // ── Hamburger menu ──
 const ham = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
-if (ham) ham.addEventListener('click', () => {
-  ham.classList.toggle('open');
-  if (navLinks) navLinks.classList.toggle('mobile-open');
-});
+
+if (ham && navLinks) {
+  // toggle on hamburger click
+  ham.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navLinks.classList.toggle('mobile-open');
+    ham.classList.toggle('open', isOpen);
+  });
+
+  // close when a nav link is tapped
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('mobile-open');
+      ham.classList.remove('open');
+    });
+  });
+
+  // close when tapping outside
+  document.addEventListener('click', (e) => {
+    if (!ham.contains(e.target) && !navLinks.contains(e.target)) {
+      navLinks.classList.remove('mobile-open');
+      ham.classList.remove('open');
+    }
+  });
+}
 
 // ── Sticky nav background on scroll ──
 window.addEventListener('scroll', () => {
