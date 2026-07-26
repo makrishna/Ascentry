@@ -1,0 +1,352 @@
+{
+  "categories": [
+    {
+      "name": "Managed IT Services",
+      "slug": "managed-it-services",
+      "icon": "🖧",
+      "tagline": "Holistic, round-the-clock managed IT",
+      "summary": "Full-time IT operations, helpdesk, monitoring and procurement handled by one accountable team so your business never waits on tech.",
+      "services": [
+        {
+          "name": "Co-Managed IT Services",
+          "slug": "co-managed-it-services",
+          "summary": "Extra hands and specialist coverage for your existing in-house IT team.",
+          "description": "Your internal IT team stays in the driver's seat — we simply give them more horsepower. Ascentry plugs into your existing tools and ticketing workflow to absorb overflow tickets, after-hours coverage, and specialist projects your team doesn't have time or headcount for.",
+          "features": [
+            "Overflow and after-hours ticket coverage",
+            "Access to specialist engineers (network, cloud, security)",
+            "Shared ticketing and documentation with your team",
+            "Flexible scope that scales up or down with demand"
+          ]
+        },
+        {
+          "name": "IT Helpdesk & Support",
+          "slug": "it-helpdesk-and-support",
+          "summary": "Friendly, fast helpdesk support for every employee, every day.",
+          "description": "A responsive helpdesk staffed by engineers who actually know your environment. We track every request to resolution, keep response times low, and give you visibility into recurring issues so we can fix root causes, not just symptoms.",
+          "features": [
+            "Multi-channel support: phone, email, chat, portal",
+            "Defined response and resolution SLAs",
+            "Remote and on-site troubleshooting",
+            "Monthly ticket trend reporting"
+          ]
+        },
+        {
+          "name": "Proactive Maintenance",
+          "slug": "proactive-maintenance",
+          "summary": "Patching, updates and health checks that stop problems before they start.",
+          "description": "Instead of firefighting, we run a disciplined maintenance cadence across your servers, workstations, and network gear — patch management, firmware updates, and scheduled health checks — so small issues never become outages.",
+          "features": [
+            "Automated patch management for OS and third-party apps",
+            "Scheduled system health checks",
+            "Firmware and driver update management",
+            "Maintenance reporting and change logs"
+          ]
+        },
+        {
+          "name": "Workstation and Server Monitoring",
+          "slug": "workstation-and-server-monitoring",
+          "summary": "24/7 monitoring that catches failures before your team feels them.",
+          "description": "Every workstation and server in your environment is watched around the clock for CPU, memory, disk, and service failures. Alerts route straight to our engineers, who triage and resolve issues — often before anyone notices a slowdown.",
+          "features": [
+            "24/7 automated monitoring and alerting",
+            "Disk, memory, and performance threshold tracking",
+            "Automatic ticket creation on failure",
+            "Historical performance reporting"
+          ]
+        },
+        {
+          "name": "Virtual CIO Services",
+          "slug": "virtual-cio-services",
+          "summary": "Strategic technology leadership without a full-time executive salary.",
+          "description": "A dedicated vCIO gets to know your business goals and builds a technology roadmap around them — budgeting, vendor management, risk planning, and quarterly business reviews — so IT decisions support growth instead of reacting to it.",
+          "features": [
+            "Quarterly technology roadmap and budget planning",
+            "Vendor and license management",
+            "Risk and compliance guidance",
+            "Executive-level reporting and reviews"
+          ]
+        },
+        {
+          "name": "Endpoint Management",
+          "slug": "endpoint-management",
+          "summary": "Centralised control and security for every device that touches your network.",
+          "description": "From laptops to point-of-sale devices, we enrol, configure, secure, and monitor every endpoint from a single console — enforcing consistent security policy no matter where your team works.",
+          "features": [
+            "Centralised device enrolment and configuration",
+            "Policy enforcement across all endpoints",
+            "Remote lock, wipe, and troubleshooting",
+            "Asset inventory and lifecycle tracking"
+          ]
+        },
+        {
+          "name": "IT Procurement",
+          "slug": "it-procurement",
+          "summary": "The right hardware and software, sourced and configured for you.",
+          "description": "We take vendor research, quoting, and configuration off your plate — sourcing hardware and licensing at competitive rates, pre-configuring it to your standards, and handling warranty and lifecycle tracking.",
+          "features": [
+            "Vendor sourcing and competitive quoting",
+            "Pre-configuration and imaging before delivery",
+            "License and warranty tracking",
+            "Lifecycle and refresh planning"
+          ]
+        },
+        {
+          "name": "Mobile Device Management (MDM)",
+          "slug": "mobile-device-management",
+          "summary": "Secure, manage, and track every phone and tablet in your fleet.",
+          "description": "Enforce passcodes, encryption, and app policies, push updates remotely, and wipe lost or stolen devices in seconds — keeping company data safe on every mobile device your team uses.",
+          "features": [
+            "Policy enforcement (passcode, encryption, app control)",
+            "Remote configuration and updates",
+            "Remote lock and wipe for lost devices",
+            "BYOD and corporate device support"
+          ]
+        },
+        {
+          "name": "IT Project Management",
+          "slug": "it-project-management",
+          "summary": "Dedicated project management for migrations, rollouts and upgrades.",
+          "description": "Office moves, cloud migrations, network overhauls — big IT projects need a dedicated project manager, not a part-time volunteer. We scope, schedule, and deliver projects on time with clear milestones and communication.",
+          "features": [
+            "Scoping, budgeting, and milestone planning",
+            "Vendor and stakeholder coordination",
+            "Risk tracking and change management",
+            "Post-project documentation and handover"
+          ]
+        },
+        {
+          "name": "Apple Support",
+          "slug": "apple-support",
+          "summary": "Specialist support for Mac, iPhone, and iPad in a business environment.",
+          "description": "Apple devices need Apple-specific expertise — from Jamf/MDM enrolment to integrating macOS into a Windows-heavy network. Our certified specialists keep your Apple fleet productive and secure.",
+          "features": [
+            "macOS, iOS and iPadOS support",
+            "Apple Business Manager and MDM enrolment",
+            "Integration with Microsoft 365 / Google Workspace",
+            "Hardware troubleshooting and repair coordination"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure & Cloud",
+      "slug": "infrastructure-and-cloud",
+      "icon": "☁️",
+      "tagline": "Cutting-edge infrastructure and cloud",
+      "summary": "Networks and cloud systems that grow with you — designed, deployed, and managed end to end.",
+      "services": [
+        {
+          "name": "Infrastructure as a Service (IaaS)",
+          "slug": "infrastructure-as-a-service",
+          "summary": "Enterprise-grade servers and storage, without the capital outlay.",
+          "description": "Skip the hardware refresh cycle. We design and manage virtualised server and storage infrastructure hosted in resilient data centres, billed predictably, and scaled as your business grows.",
+          "features": [
+            "Virtualised compute and storage on demand",
+            "Predictable monthly billing",
+            "Built-in redundancy and failover",
+            "Scales up or down with business need"
+          ]
+        },
+        {
+          "name": "Network Management",
+          "slug": "network-management",
+          "summary": "Fast, secure, and reliable networks — designed and monitored end to end.",
+          "description": "From switch and firewall configuration to Wi-Fi coverage planning, we design networks for performance and security, then monitor them continuously to catch congestion, outages, or misconfigurations early.",
+          "features": [
+            "Network design, segmentation and configuration",
+            "Firewall and switch management",
+            "Wi-Fi planning and optimisation",
+            "24/7 network monitoring"
+          ]
+        },
+        {
+          "name": "Cloud Solutions",
+          "slug": "cloud-solutions",
+          "summary": "Migration, architecture, and ongoing management for AWS, Azure, and Google Cloud.",
+          "description": "We plan and execute cloud migrations with minimal downtime, then manage the environment for cost, performance, and security — so you get the flexibility of the cloud without the surprise bill.",
+          "features": [
+            "Cloud migration planning and execution",
+            "Multi-cloud architecture (AWS, Azure, GCP)",
+            "Cost optimisation and governance",
+            "Ongoing cloud operations and support"
+          ]
+        },
+        {
+          "name": "ISP and VoIP Services",
+          "slug": "isp-and-voip-services",
+          "summary": "Reliable internet connectivity and modern business phone systems.",
+          "description": "We source and manage business-grade internet circuits and deploy cloud VoIP phone systems, so your team stays connected internally and with customers, with one partner accountable for both.",
+          "features": [
+            "ISP sourcing and circuit management",
+            "Cloud-based VoIP phone systems",
+            "Call routing, voicemail-to-email, and mobile apps",
+            "Single point of contact for connectivity issues"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Professional IT Services",
+      "slug": "professional-it-services",
+      "icon": "🛠️",
+      "tagline": "Exceptional professional IT services",
+      "summary": "Upgrades, optimisation, and compliance projects delivered by specialists — in and out, done right.",
+      "services": [
+        {
+          "name": "Technology Alignment Process",
+          "slug": "technology-alignment-process",
+          "summary": "A structured review that maps your technology to your business goals.",
+          "description": "We audit your current stack, compare it against where the business is heading, and deliver a prioritised roadmap — closing gaps and eliminating tools that no longer earn their keep.",
+          "features": [
+            "Full technology and licensing audit",
+            "Gap analysis against business objectives",
+            "Prioritised improvement roadmap",
+            "Ongoing quarterly reviews"
+          ]
+        },
+        {
+          "name": "Google Workspace Optimization",
+          "slug": "google-workspace-optimization",
+          "summary": "Get more out of Gmail, Drive, Meet, and the rest of Google Workspace.",
+          "description": "From account security and storage policy to shared drive structure and automation, we tune Google Workspace to fit how your team actually works, and train your staff to use it well.",
+          "features": [
+            "Security and access policy configuration",
+            "Shared drive and storage structure clean-up",
+            "Migration to/from Google Workspace",
+            "Team training and adoption support"
+          ]
+        },
+        {
+          "name": "Microsoft 365 Optimization",
+          "slug": "microsoft-365-optimization",
+          "summary": "Unlock the full value of Teams, SharePoint, Exchange, and Intune.",
+          "description": "Most businesses use a fraction of what Microsoft 365 offers. We configure security baselines, SharePoint/Teams structure, and Intune device policy so you get enterprise-grade capability without the enterprise complexity.",
+          "features": [
+            "Security baseline and conditional access setup",
+            "Teams and SharePoint structure design",
+            "Intune device policy configuration",
+            "License optimisation to cut waste"
+          ]
+        },
+        {
+          "name": "IT Audit & Compliance",
+          "slug": "it-audit-and-compliance",
+          "summary": "Independent audits that keep you ready for regulators, insurers, and clients.",
+          "description": "We assess your environment against the frameworks that matter to your industry, document findings clearly, and help you remediate gaps before they become audit failures or breach liabilities.",
+          "features": [
+            "Framework-based compliance gap assessment",
+            "Documentation for auditors and insurers",
+            "Remediation planning and support",
+            "Ongoing compliance monitoring"
+          ]
+        },
+        {
+          "name": "Business Continuity",
+          "slug": "business-continuity",
+          "summary": "Plans and systems that keep you operating through disruption.",
+          "description": "We build and test continuity and disaster recovery plans covering data, systems, and communication — so a fire, outage, or ransomware event is a bad day, not a business-ending one.",
+          "features": [
+            "Business impact analysis",
+            "Disaster recovery plan design and testing",
+            "Failover and backup site strategy",
+            "Incident communication planning"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IT Security",
+      "slug": "it-security",
+      "icon": "🛡️",
+      "tagline": "Exceptional IT security services",
+      "summary": "Layered protection across your people, endpoints, network, and data — monitored 24/7.",
+      "services": [
+        {
+          "name": "Managed SOC",
+          "slug": "managed-soc",
+          "summary": "A 24/7 security operations centre watching your environment.",
+          "description": "Our managed SOC combines automated threat detection with human analysts monitoring your network, endpoints, and cloud around the clock — investigating alerts and responding before minor incidents become breaches.",
+          "features": [
+            "24/7/365 security monitoring",
+            "Human-reviewed alert triage",
+            "Threat hunting and investigation",
+            "Monthly security posture reporting"
+          ]
+        },
+        {
+          "name": "Data Backups & Disaster Recovery",
+          "slug": "data-backups-and-disaster-recovery",
+          "summary": "Automated backups and tested recovery, so data loss is never final.",
+          "description": "We design a backup strategy across on-site, cloud, and offsite copies, monitor backup jobs daily, and run regular recovery tests — so when something goes wrong, restoring data is fast and predictable.",
+          "features": [
+            "Automated, monitored daily backups",
+            "On-site, cloud, and offsite redundancy",
+            "Scheduled recovery testing",
+            "Defined recovery time objectives (RTOs)"
+          ]
+        },
+        {
+          "name": "Endpoint Detection and Response (EDR)",
+          "slug": "endpoint-detection-and-response-edr",
+          "summary": "Behaviour-based threat detection on every laptop, desktop, and server.",
+          "description": "Traditional antivirus misses modern threats. EDR watches for suspicious behaviour in real time, automatically isolates compromised devices, and gives our analysts the forensic detail to respond fast.",
+          "features": [
+            "Real-time behavioural threat detection",
+            "Automated device isolation on compromise",
+            "Forensic investigation tooling",
+            "24/7 alert monitoring and response"
+          ]
+        },
+        {
+          "name": "Security Awareness Training",
+          "slug": "security-awareness-training",
+          "summary": "Turn your employees into your strongest line of defence.",
+          "description": "Most breaches start with a click. We run ongoing phishing simulations and bite-sized training so employees recognise social engineering, report suspicious activity, and build lasting security habits.",
+          "features": [
+            "Simulated phishing campaigns",
+            "Short, ongoing training modules",
+            "Individual and team risk reporting",
+            "New-hire security onboarding"
+          ]
+        },
+        {
+          "name": "Email Security",
+          "slug": "email-security",
+          "summary": "Advanced filtering that stops phishing, malware, and spoofing before it lands.",
+          "description": "We layer advanced spam and phishing filtering, attachment sandboxing, and domain authentication (SPF/DKIM/DMARC) on top of your existing mailboxes to stop the single most common attack vector.",
+          "features": [
+            "Advanced spam and phishing filtering",
+            "Attachment and link sandboxing",
+            "SPF, DKIM, and DMARC configuration",
+            "Business email compromise protection"
+          ]
+        },
+        {
+          "name": "Managed Detection & Response",
+          "slug": "managed-detection-and-response",
+          "summary": "Combined technology and human analysts hunting threats across your stack.",
+          "description": "MDR layers expert-led threat hunting on top of your security tools — correlating signals across endpoints, network, and cloud to catch attacks that automated tools alone would miss, with rapid analyst-led response.",
+          "features": [
+            "Cross-platform threat correlation",
+            "Expert-led threat hunting",
+            "Rapid incident containment",
+            "Root-cause incident reporting"
+          ]
+        },
+        {
+          "name": "Penetration Testing",
+          "slug": "penetration-testing",
+          "summary": "Ethical hackers stress-test your defences before real attackers do.",
+          "description": "Our testers simulate real-world attacks against your network, applications, and people to uncover exploitable weaknesses — delivered as a clear, prioritised report your team can act on immediately.",
+          "features": [
+            "External and internal network testing",
+            "Web application penetration testing",
+            "Social engineering assessments",
+            "Prioritised remediation report"
+          ]
+        }
+      ]
+    }
+  ]
+}

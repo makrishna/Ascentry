@@ -34,6 +34,50 @@ if (ham && navLinks) {
   });
 }
 
+// ── Multilevel Services dropdown (mega-menu) ──
+(function () {
+  const navDrop = document.querySelector('.nav-drop');
+  if (!navDrop) return;
+  const toggle = navDrop.querySelector('.nav-drop-toggle');
+  const link = navDrop.querySelector('.nav-drop-link');
+  const isMobile = () => window.matchMedia('(max-width: 640px)').matches;
+
+  function closeDrop() {
+    navDrop.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+  function toggleDrop() {
+    const willOpen = !navDrop.classList.contains('open');
+    navDrop.classList.toggle('open', willOpen);
+    toggle.setAttribute('aria-expanded', String(willOpen));
+  }
+
+  toggle.addEventListener('click', (e) => {
+    // On mobile, tapping the row expands the panel instead of navigating.
+    if (isMobile()) {
+      e.preventDefault();
+      toggleDrop();
+    }
+  });
+
+  // Clicking the "Services" text itself should still navigate on desktop,
+  // and only navigate on mobile once the panel is already open.
+  link.addEventListener('click', (e) => {
+    if (isMobile() && !navDrop.classList.contains('open')) {
+      e.preventDefault();
+      toggleDrop();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navDrop.contains(e.target)) closeDrop();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDrop();
+  });
+  window.addEventListener('resize', () => { if (!isMobile()) closeDrop(); });
+})();
+
 // ── Sticky nav background on scroll ──
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');

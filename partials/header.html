@@ -1,0 +1,52 @@
+<!--
+  partials/header.html
+  ---------------------------------------------------------------
+  SINGLE SOURCE OF TRUTH for the site header/nav.
+
+  Edit this file to change: the logo, top-level menu items (About,
+  Solutions, Clients, Contact), the "Services" dropdown frame, or the
+  mega-panel footer row. Then run:
+
+      node scripts/generate-services.js
+
+  ...and the change propagates to all 36 pages automatically.
+
+  Tokens (replaced by scripts/generate-services.js — do not delete):
+    {{ROOT}}                 relative path prefix to the site root
+    {{ABOUT_CLASS}}          " active" or "" (highlights current page)
+    {{SOLUTIONS_CLASS}}
+    {{SERVICES_CLASS}}
+    {{CLIENTS_CLASS}}
+    {{MEGA_COLUMNS}}         the 4 category columns — built from
+                              services-data.json, do not hand-edit,
+                              edit services-data.json instead
+    {{TOTAL_SERVICES}}       total service count, auto-counted
+  ---------------------------------------------------------------
+-->
+<nav>
+  <a href="{{ROOT}}index.html" class="nav-logo"><span class="logo-dot"></span>Ascentry<span>IT Solutions</span></a>
+  <ul class="nav-links">
+    <li><a href="{{ROOT}}about.html"{{ABOUT_CLASS}}>About Us</a></li>
+    <li><a href="{{ROOT}}solutions.html"{{SOLUTIONS_CLASS}}>Solutions</a></li>
+    <li class="nav-drop">
+      <button type="button" class="nav-drop-toggle" aria-expanded="false">
+        <a href="{{ROOT}}services.html" class="nav-drop-link{{SERVICES_CLASS}}">Services</a>
+        <span class="drop-caret" aria-hidden="true"></span>
+      </button>
+      <div class="mega-panel">
+        <div class="mega-panel-inner">
+          <div class="mega-grid">
+{{MEGA_COLUMNS}}
+          </div>
+          <div class="mega-panel-footer">
+            <a href="{{ROOT}}services.html">View all {{TOTAL_SERVICES}} services →</a>
+            <a href="{{ROOT}}contact.html" class="mega-panel-cta">Talk to an Expert →</a>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li><a href="{{ROOT}}clients.html"{{CLIENTS_CLASS}}>Clients</a></li>
+    <li><a href="{{ROOT}}contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>

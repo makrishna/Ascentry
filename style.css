@@ -356,22 +356,24 @@ footer {
     border-bottom: 1px solid var(--border);
     padding: 0;
     max-height: 0;
-    overflow: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     transition: max-height 0.4s ease, padding 0.3s ease;
     z-index: 99;
   }
 
-  /* open state */
+  /* open state — bounded by viewport height, not a fixed px cap, and
+     scrollable so an expanded Services accordion is always reachable */
   .nav-links.mobile-open {
-    max-height: 400px;
+    max-height: calc(100vh - 72px);
     padding: 1rem 0 1.5rem;
   }
 
-  .nav-links li {
+  .nav-links > li {
     width: 100%;
   }
 
-  .nav-links a {
+  .nav-links > li > a {
     display: block;
     padding: 0.75rem 5%;
     font-size: 1rem;
@@ -431,3 +433,157 @@ html.light .nav-links {
 .breadcrumb a { color: var(--teal); text-decoration: none; }
 .breadcrumb a:hover { text-decoration: underline; }
 .breadcrumb span { color: var(--muted); }
+/* =====================================================
+   MULTILEVEL SERVICES DROPDOWN (mega-menu)
+===================================================== */
+.nav-drop { position: relative; }
+.nav-drop-toggle {
+  display: flex; align-items: center; gap: 6px;
+  background: none; border: none; cursor: pointer;
+  font-family: var(--font-body); padding: 0; margin: 0;
+}
+.nav-drop-link {
+  color: var(--off-white); text-decoration: none;
+  font-size: 0.92rem; font-weight: 500; transition: color 0.25s;
+}
+.nav-drop-toggle:hover .nav-drop-link,
+.nav-drop-link.active { color: var(--teal); }
+.drop-caret {
+  width: 8px; height: 8px;
+  border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg); margin-top: -4px;
+  transition: transform 0.25s, border-color 0.25s;
+}
+.nav-drop:hover .drop-caret,
+.nav-drop.open .drop-caret { border-color: var(--teal); transform: rotate(-135deg); margin-top: 2px; }
+
+.mega-panel {
+  /* NOTE: top:100% with no gap + padding-top as the "bridge" keeps the
+     hover chain unbroken — a gap here (e.g. top:calc(100% + 18px)) makes
+     the panel vanish the instant the cursor crosses the empty space. */
+  position: absolute; top: 100%; left: 50%;
+  transform: translateX(-50%);
+  width: min(1240px, 86vw);
+  padding-top: 14px;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity 0.22s ease, visibility 0.22s;
+  z-index: 60;
+}
+.nav-drop:hover .mega-panel,
+.nav-drop:focus-within .mega-panel,
+.nav-drop.open .mega-panel {
+  opacity: 1; visibility: visible; pointer-events: auto;
+}
+.mega-panel-inner {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 16px; box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+  padding: 1.75rem;
+  transform: translateY(8px);
+  transition: transform 0.22s ease;
+}
+.nav-drop:hover .mega-panel-inner,
+.nav-drop:focus-within .mega-panel-inner,
+.nav-drop.open .mega-panel-inner {
+  transform: translateY(0);
+}
+.mega-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.75rem;
+}
+.mega-col-title {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-display); font-weight: 700; font-size: 0.92rem;
+  color: var(--white); text-decoration: none; margin-bottom: 4px;
+}
+.mega-col-title:hover { color: var(--teal); }
+.mega-col-icon { font-size: 1rem; }
+.mega-col-tagline { font-size: 0.76rem; color: var(--muted); margin-bottom: 0.45rem; line-height: 1.4; padding-bottom: 1rem; border-bottom: 1px solid #dcdcdc; }
+.mega-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.mega-col ul a {
+  font-size: 0.84rem; color: var(--muted); text-decoration: none;
+  transition: color 0.2s, padding-left 0.2s;
+}
+.mega-col ul a:hover { color: var(--teal); padding-left: 3px; }
+.mega-panel-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border);
+}
+.mega-panel-footer > a:first-child { font-size: 0.85rem; color: var(--white); font-weight: 600; text-decoration: none; }
+.mega-panel-footer > a:first-child:hover { color: var(--teal); }
+.mega-panel-cta {
+  background: var(--teal); color: var(--navy) !important; font-weight: 700;
+  padding: 8px 18px; border-radius: 8px; font-size: 0.82rem; text-decoration: none;
+}
+
+html.light .mega-panel-inner { background: var(--card-bg); }
+html.light .nav-drop-link { color: var(--off-white); }
+
+@media (max-width: 640px) {
+  .nav-drop { width: 100%; }
+  .nav-drop-toggle { width: 100%; justify-content: space-between; padding: 4px 0; }
+  .mega-panel {
+    position: static; transform: none; width: 100%; padding-top: 0;
+    max-height: 0; opacity: 1; visibility: visible; pointer-events: auto;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .nav-drop.open .mega-panel { max-height: 2000px; }
+  .mega-panel-inner {
+    transform: none; background: none; border: none; box-shadow: none;
+    padding: 0.5rem 0 1rem;
+  }
+  .mega-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .mega-panel-footer { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+}
+
+/* =====================================================
+   SERVICE / CATEGORY DIRECTORY PAGES
+===================================================== */
+.svc-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem;
+}
+.svc-card {
+  display: block; background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.75rem; text-decoration: none;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+.svc-card:hover {
+  transform: translateY(-4px); border-color: var(--teal);
+  box-shadow: 0 16px 40px rgba(0,196,167,0.12);
+}
+.svc-card h3 {
+  font-family: var(--font-display); font-size: 1.05rem; font-weight: 700;
+  color: var(--white); margin-bottom: 0.6rem;
+}
+.svc-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
+.svc-card-link { font-size: 0.82rem; font-weight: 700; color: var(--teal); }
+
+/* Service detail page */
+.svc-detail-grid {
+  display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start;
+}
+.svc-detail-lead { font-size: 1.05rem; color: var(--muted); line-height: 1.8; margin: 1.25rem 0 2rem; }
+.svc-feat-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+.svc-feat-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 0.95rem; color: var(--off-white); line-height: 1.6;
+}
+.svc-feat-check {
+  flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--teal-glow); color: var(--teal); font-weight: 700;
+  display: flex; align-items: center; justify-content: center; font-size: 0.75rem;
+}
+.svc-side-card {
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.75rem; position: sticky; top: 100px;
+}
+.svc-side-card h4 { font-family: var(--font-display); color: var(--white); margin-bottom: 0.6rem; }
+.svc-side-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+@media (max-width: 1000px) {
+  .svc-grid { grid-template-columns: 1fr 1fr; }
+  .svc-detail-grid { grid-template-columns: 1fr; }
+  .svc-side-card { position: static; }
+}
+@media (max-width: 640px) {
+  .svc-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,18 @@
+<!--
+  partials/cta-banner.html
+  ---------------------------------------------------------------
+  SINGLE SOURCE OF TRUTH for the closing "call to action" banner that
+  appears on services.html and every generated category/service page.
+
+  Tokens (filled per-page by scripts/generate-services.js):
+    {{ROOT}}         relative path prefix to the site root
+    {{CTA_HEADING}}  page-specific heading, e.g. "Ready to Talk IT Security?"
+    {{CTA_TEXT}}     page-specific supporting line
+    {{CTA_BUTTON}}   page-specific button label, e.g. "Get in Touch →"
+  ---------------------------------------------------------------
+-->
+<section class="cta-banner">
+  <h2 class="reveal">{{CTA_HEADING}}</h2>
+  <p class="reveal">{{CTA_TEXT}}</p>
+  <a href="{{ROOT}}contact.html" class="btn-navy reveal">{{CTA_BUTTON}}</a>
+</section>

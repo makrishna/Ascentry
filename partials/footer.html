@@ -1,0 +1,58 @@
+<!--
+  partials/footer.html
+  ---------------------------------------------------------------
+  SINGLE SOURCE OF TRUTH for the site footer.
+
+  Edit this file to change: the company blurb, social links, the
+  Solutions/Company columns, or the legal links row. Then run:
+
+      node scripts/generate-services.js
+
+  ...and the change propagates to all 36 pages automatically.
+
+  Tokens (replaced by scripts/generate-services.js — do not delete):
+    {{ROOT}}                     relative path prefix to the site root
+    {{FOOTER_SERVICES_COLUMN}}   the "Services" footer column — built
+                                  from services-data.json, do not
+                                  hand-edit, edit services-data.json
+                                  instead
+    {{YEAR}}                     current year, auto-filled at build time
+  ---------------------------------------------------------------
+-->
+<footer>
+  <div class="dot-grid" style="bottom:0;right:0;width:250px;height:200px;"></div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="{{ROOT}}index.html" class="nav-logo"><span class="logo-dot"></span>Ascentry<span>IT Solutions</span></a>
+      <p>A leading customer-centric IT Infrastructure and Security Services company delivering end-to-end solutions across Hyderabad, India and globally.</p>
+      <div class="footer-socials"><a href="#" class="social-btn">in</a><a href="#" class="social-btn">𝕏</a><a href="#" class="social-btn">f</a><a href="#" class="social-btn">ig</a></div>
+    </div>
+    <div class="footer-col">
+      <h5>Solutions</h5>
+      <ul>
+        <li><a href="{{ROOT}}solutions.html">IT Infrastructure</a></li>
+        <li><a href="{{ROOT}}solutions.html">Information Security</a></li>
+        <li><a href="{{ROOT}}solutions.html">Cloud Solutions</a></li>
+        <li><a href="{{ROOT}}solutions.html">Data Centre</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+{{FOOTER_SERVICES_COLUMN}}
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="{{ROOT}}about.html">About Us</a></li>
+        <li><a href="{{ROOT}}clients.html">Clients</a></li>
+        <li><a href="{{ROOT}}contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© {{YEAR}} Ascentry IT Solutions. All rights reserved.</p>
+    <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div>
+  </div>
+</footer>

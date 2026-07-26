@@ -174,7 +174,80 @@
   <ul class="nav-links">
     <li><a href="about.html">About Us</a></li>
     <li><a href="solutions.html">Solutions</a></li>
-    <li><a href="services.html" class="active">Services</a></li>
+    <li class="nav-drop">
+      <button type="button" class="nav-drop-toggle" aria-expanded="false">
+        <a href="services.html" class="nav-drop-link active">Services</a>
+        <span class="drop-caret" aria-hidden="true"></span>
+      </button>
+      <div class="mega-panel">
+        <div class="mega-panel-inner">
+          <div class="mega-grid">
+            <div class="mega-col">
+              <a href="services/managed-it-services/index.html" class="mega-col-title">
+                <span class="mega-col-icon">🖧</span> Managed IT Services
+              </a>
+              <p class="mega-col-tagline">Holistic, round-the-clock managed IT</p>
+              <ul>
+              <li><a href="services/managed-it-services/co-managed-it-services.html">Co-Managed IT Services</a></li>
+              <li><a href="services/managed-it-services/it-helpdesk-and-support.html">IT Helpdesk &amp; Support</a></li>
+              <li><a href="services/managed-it-services/proactive-maintenance.html">Proactive Maintenance</a></li>
+              <li><a href="services/managed-it-services/workstation-and-server-monitoring.html">Workstation and Server Monitoring</a></li>
+              <li><a href="services/managed-it-services/virtual-cio-services.html">Virtual CIO Services</a></li>
+              <li><a href="services/managed-it-services/endpoint-management.html">Endpoint Management</a></li>
+              <li><a href="services/managed-it-services/it-procurement.html">IT Procurement</a></li>
+              <li><a href="services/managed-it-services/mobile-device-management.html">Mobile Device Management (MDM)</a></li>
+              <li><a href="services/managed-it-services/it-project-management.html">IT Project Management</a></li>
+              <li><a href="services/managed-it-services/apple-support.html">Apple Support</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <a href="services/infrastructure-and-cloud/index.html" class="mega-col-title">
+                <span class="mega-col-icon">☁️</span> Infrastructure &amp; Cloud
+              </a>
+              <p class="mega-col-tagline">Cutting-edge infrastructure and cloud</p>
+              <ul>
+              <li><a href="services/infrastructure-and-cloud/infrastructure-as-a-service.html">Infrastructure as a Service (IaaS)</a></li>
+              <li><a href="services/infrastructure-and-cloud/network-management.html">Network Management</a></li>
+              <li><a href="services/infrastructure-and-cloud/cloud-solutions.html">Cloud Solutions</a></li>
+              <li><a href="services/infrastructure-and-cloud/isp-and-voip-services.html">ISP and VoIP Services</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <a href="services/professional-it-services/index.html" class="mega-col-title">
+                <span class="mega-col-icon">🛠️</span> Professional IT Services
+              </a>
+              <p class="mega-col-tagline">Exceptional professional IT services</p>
+              <ul>
+              <li><a href="services/professional-it-services/technology-alignment-process.html">Technology Alignment Process</a></li>
+              <li><a href="services/professional-it-services/google-workspace-optimization.html">Google Workspace Optimization</a></li>
+              <li><a href="services/professional-it-services/microsoft-365-optimization.html">Microsoft 365 Optimization</a></li>
+              <li><a href="services/professional-it-services/it-audit-and-compliance.html">IT Audit &amp; Compliance</a></li>
+              <li><a href="services/professional-it-services/business-continuity.html">Business Continuity</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <a href="services/it-security/index.html" class="mega-col-title">
+                <span class="mega-col-icon">🛡️</span> IT Security
+              </a>
+              <p class="mega-col-tagline">Exceptional IT security services</p>
+              <ul>
+              <li><a href="services/it-security/managed-soc.html">Managed SOC</a></li>
+              <li><a href="services/it-security/data-backups-and-disaster-recovery.html">Data Backups &amp; Disaster Recovery</a></li>
+              <li><a href="services/it-security/endpoint-detection-and-response-edr.html">Endpoint Detection and Response (EDR)</a></li>
+              <li><a href="services/it-security/security-awareness-training.html">Security Awareness Training</a></li>
+              <li><a href="services/it-security/email-security.html">Email Security</a></li>
+              <li><a href="services/it-security/managed-detection-and-response.html">Managed Detection &amp; Response</a></li>
+              <li><a href="services/it-security/penetration-testing.html">Penetration Testing</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mega-panel-footer">
+            <a href="services.html">View all 26 services →</a>
+            <a href="contact.html" class="mega-panel-cta">Talk to an Expert →</a>
+          </div>
+        </div>
+      </div>
+    </li>
     <li><a href="clients.html">Clients</a></li>
     <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
   </ul>
@@ -545,9 +618,9 @@
 
 <!-- CTA -->
 <section class="cta-banner">
-  <h2>Ready to Offload Your IT Operations?</h2>
-  <p>Let Ascentry manage your infrastructure so you can focus on your business.</p>
-  <a href="contact.html" class="btn-navy">Start a Conversation →</a>
+  <h2 class="reveal">Ready to Offload Your IT Operations?</h2>
+  <p class="reveal">Let Ascentry manage your infrastructure so you can focus on your business.</p>
+  <a href="contact.html" class="btn-navy reveal">Start a Conversation →</a>
 </section>
 
 <!-- FOOTER -->
@@ -559,9 +632,32 @@
       <p>A leading customer-centric IT Infrastructure and Security Services company delivering end-to-end solutions across Hyderabad, India and globally.</p>
       <div class="footer-socials"><a href="#" class="social-btn">in</a><a href="#" class="social-btn">𝕏</a><a href="#" class="social-btn">f</a><a href="#" class="social-btn">ig</a></div>
     </div>
-    <div class="footer-col"><h5>Solutions</h5><ul><li><a href="solutions.html">IT Infrastructure</a></li><li><a href="solutions.html">Information Security</a></li><li><a href="solutions.html">Cloud Solutions</a></li><li><a href="solutions.html">Data Centre</a></li></ul></div>
-    <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html">Managed Services</a></li><li><a href="services.html">IT Consulting</a></li><li><a href="services.html">Managed Security</a></li><li><a href="services.html">Implementation</a></li></ul></div>
-    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="clients.html">Clients</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col">
+      <h5>Solutions</h5>
+      <ul>
+        <li><a href="solutions.html">IT Infrastructure</a></li>
+        <li><a href="solutions.html">Information Security</a></li>
+        <li><a href="solutions.html">Cloud Solutions</a></li>
+        <li><a href="solutions.html">Data Centre</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="services/managed-it-services/index.html">Managed IT Services</a></li>
+        <li><a href="services/infrastructure-and-cloud/index.html">Infrastructure &amp; Cloud</a></li>
+        <li><a href="services/professional-it-services/index.html">Professional IT Services</a></li>
+        <li><a href="services/it-security/index.html">IT Security</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="clients.html">Clients</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 Ascentry IT Solutions. All rights reserved.</p>
