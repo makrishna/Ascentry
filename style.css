@@ -519,17 +519,20 @@ html.light .nav-drop-link { color: var(--off-white); }
 
 @media (max-width: 640px) {
   .nav-drop { width: 100%; }
-  .nav-drop-toggle { width: 100%; justify-content: space-between; padding: 4px 0; }
+  .nav-drop-toggle { width: 100%; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid #dcdcdc; }
   .mega-panel {
     position: static; transform: none; width: 100%; padding-top: 0;
     max-height: 0; opacity: 1; visibility: visible; pointer-events: auto;
     overflow: hidden;
     transition: max-height 0.3s ease;
   }
+  .nav-drop-toggle a {
+    font-size: 1rem;
+  }
   .nav-drop.open .mega-panel { max-height: 2000px; }
   .mega-panel-inner {
     transform: none; background: none; border: none; box-shadow: none;
-    padding: 0.5rem 0 1rem;
+    padding: 0.5rem 20px 1rem;
   }
   .mega-grid { grid-template-columns: 1fr; gap: 1.25rem; }
   .mega-panel-footer { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
